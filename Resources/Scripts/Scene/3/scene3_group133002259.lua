@@ -970,7 +970,7 @@ function L1_1(A0_2, A1_2)
   L3_2 = A0_2
   L4_2 = "auth_uid_p1"
   L5_2 = A0_2.uid
-  L5_2 = L5_2 // 10000
+  L5_2 = math.floor(L5_2 // 10000)
   L2_2(L3_2, L4_2, L5_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.SetGroupVariableValue

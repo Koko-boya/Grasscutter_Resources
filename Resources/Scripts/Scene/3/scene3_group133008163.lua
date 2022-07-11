@@ -625,7 +625,7 @@ function L2_1(A0_2, A1_2)
         L10_2 = 10
         L11_2 = L5_2 - 1
         L9_2 = L9_2(L10_2, L11_2)
-        L8_2 = L8_2 // L9_2
+        L8_2 = math.floor(L8_2 // L9_2)
         if L8_2 ~= 1 then
           L8_2 = math
           L8_2 = L8_2.pow
@@ -672,7 +672,7 @@ function L2_1(A0_2, A1_2)
         L10_2 = 10
         L11_2 = L5_2 - 1
         L9_2 = L9_2(L10_2, L11_2)
-        L8_2 = L8_2 // L9_2
+        L8_2 = math.floor(L8_2 // L9_2)
         if L8_2 ~= 1 then
           L8_2 = math
           L8_2 = L8_2.pow
