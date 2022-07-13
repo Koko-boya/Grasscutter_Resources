@@ -1,5 +1,5 @@
 # Grasscutter_Resources
-> <em>Resource Version - "Certain Anime Game" 2.8.0</em>
+> <em>Resource Version - "Certain Anime Game" 2.7.0</em>
 
 - ExcelBinOutput
 - BinOutput
