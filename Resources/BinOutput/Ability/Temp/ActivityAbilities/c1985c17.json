@@ -3,38 +3,38 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_StrengthenNormalAttack",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_StrengthenNormalAttack_AtkSpeed": 0.0,
                 "RogueV2_StrengthenNormalAttack_HealMaxHpRatio": 0.0,
                 "RogueV2_StrengthenNormalAttack_CDTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_StrengthenNormalAttack": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_StrengthenNormalAttack_Handler"
+                            "modifierName": "UNIQUE_RogueV2_StrengthenNormalAttack_Handler"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_StrengthenNormalAttack_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Animator_AttackSpeedRatio": "RogueV2_StrengthenNormalAttack_AtkSpeed"
                     },
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -45,102 +45,102 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "RogueV2_StrengthenNormalAttack_CD",
+                                    "target": "Team",
+                                    "isFormula": "RogueV2_StrengthenNormalAttack_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "CurLocalAvatar",
-                                    "GAIGOBCNNEE": "UNIQUE_RogueV2_StrengthenNormalAttack_Avatar_Heal"
+                                    "target": "CurLocalAvatar",
+                                    "modifierName": "UNIQUE_RogueV2_StrengthenNormalAttack_Avatar_Heal"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "GAIGOBCNNEE": "UNIQUE_RogueV2_StrengthenNormalAttack_Avatar_Heal_CD"
+                                    "target": "Team",
+                                    "modifierName": "UNIQUE_RogueV2_StrengthenNormalAttack_Avatar_Heal_CD"
                                 }
                             ]
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_RogueV2_StrengthenNormalAttack_Avatar_Heal_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "RogueV2_StrengthenNormalAttack_CDTime",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "RogueV2_StrengthenNormalAttack_CDTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "RogueV2_StrengthenNormalAttack_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_StrengthenNormalAttack_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "RogueV2_StrengthenNormalAttack_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_StrengthenNormalAttack_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_StrengthenNormalAttack_Avatar_Heal": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "HealHP",
-                            "AJAHODOGLMH": "RogueV2_StrengthenNormalAttack_HealMaxHpRatio"
+                            "amountByTargetMaxHPRatio": "RogueV2_StrengthenNormalAttack_HealMaxHpRatio"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_StrengthenNormalAttack"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_RogueV2_StrengthenNormalAttack"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_ExtraAttack",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_ExtraAttack_CostStamina_Rate": -1.0,
                 "RogueV2_ExtraAttack_Ratio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_ExtraAttack": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_ExtraAttack_Handler"
+                            "modifierName": "UNIQUE_RogueV2_ExtraAttack_Handler"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_ExtraAttack_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToStateIDMixin",
                             "stateIDs": [
@@ -173,11 +173,11 @@
                                 "Katana_Attack06",
                                 "Katana_ExtraAttack"
                             ],
-                            "GAIGOBCNNEE": "RogueV2_Stamina_ExtraAttack_Sub"
+                            "modifierName": "RogueV2_Stamina_ExtraAttack_Sub"
                         },
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "ExtraAttack"
                             ],
                             "damagePercentageRatio": "RogueV2_ExtraAttack_Ratio"
@@ -195,55 +195,55 @@
                                 "Gandalfr_ExtraAttack",
                                 "Katana_ExtraAttack"
                             ],
-                            "GAIGOBCNNEE": "RogueV2_Stamina_ExtraAttack_Sub2"
+                            "modifierName": "RogueV2_Stamina_ExtraAttack_Sub2"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "RogueV2_Stamina_ExtraAttack_Sub": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_CostStaminaRatio": "RogueV2_ExtraAttack_CostStamina_Rate"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "RogueV2_Stamina_ExtraAttack_Sub2": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_EndureDelta": 0.0
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_ExtraAttack"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_RogueV2_ExtraAttack"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_ReviveEnergy",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_ReviveEnergy": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_ReviveEnergy_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 1.0,
+                    "onThinkInterval": [
                         {
                             "$type": "ApplyModifier",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByNot",
@@ -257,71 +257,71 @@
                                     "$type": "ByIsCombat"
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_ReviveEnergy_Effect"
+                            "modifierName": "UNIQUE_RogueV2_ReviveEnergy_Effect"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_ReviveEnergy_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ReviveElemEnergy",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": "RogueV2_ReviveEnergy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_ReviveEnergy_Handler"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_RogueV2_ReviveEnergy_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_FallingWindZone",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_WindZone_CD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_FallingWindZone_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableRocketJump",
-                            "CFIPAGENGPE": true,
+                            "canBeHandledOnRecover": true,
                             "type": "DungeonJump",
                             "enable": true,
-                            "MJIDJNMCKCP": {
-                                "IMLKBGMCLLH": 2.0,
-                                "HFBNHJBODPH": 3.0
+                            "extention": {
+                                "xzMultiplier": 2.0,
+                                "yMultiplier": 3.0
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableRocketJump",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
                             "type": "DungeonJump"
                         }
                     ],
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -330,143 +330,143 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "RogueV2_FallingWindZone_CD",
+                                    "target": "Team",
+                                    "isFormula": "RogueV2_FallingWindZone_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NPHOOPNDCAC": "Self",
-                                    "NMJGDKCDFOJ": [
+                                    "target": "Self",
+                                    "attackTags": [
                                         "FallingAttack"
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_RogueV2_FallingWindZone_WindZoneEffect"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_RogueV2_FallingWindZone_WindZoneEffect"
                                 }
                             ]
                         }
                     ],
-                    "NDHIFGEGBAC": [
+                    "onAvatarIn": [
                         {
                             "$type": "EnableRocketJump",
-                            "CFIPAGENGPE": true,
+                            "canBeHandledOnRecover": true,
                             "type": "DungeonJump",
                             "enable": true,
-                            "MJIDJNMCKCP": {
-                                "IMLKBGMCLLH": 2.0,
-                                "HFBNHJBODPH": 3.0
+                            "extention": {
+                                "xzMultiplier": 2.0,
+                                "yMultiplier": 3.0
                             }
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_FallingWindZone_WindZoneEffect": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "CreateGadget",
-                            "ACOKKHADPOJ": true,
-                            "NGDMCBABOJA": {
+                            "doOffStage": true,
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.5,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.5,
+                                    "z": 0.0
                                 }
                             },
-                            "CABLIPAKCGB": 44000428,
-                            "DOLAJLACEDF": 1001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 44000428,
+                            "campID": 1001,
+                            "campTargetType": "Enemy"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Team",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_FallingWindZone_WindZone_CD"
+                            "target": "Team",
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_RogueV2_FallingWindZone_WindZone_CD"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_FallingWindZone_WindZone_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "RogueV2_WindZone_CD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "RogueV2_WindZone_CD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "RogueV2_FallingWindZone_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_FallingWindZone_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "RogueV2_FallingWindZone_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_FallingWindZone_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_FallingWindZone_Handler"
+                    "modifierName": "UNIQUE_RogueV2_FallingWindZone_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Activity_RogueV2_WindZone_Gadget",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Duration": 1.5
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Life_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "Duration",
+                    "modifierName": "",
+                    "duration": "Duration",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 },
                 "RogueV2_WindZone": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "WindZoneMixin",
-                            "JBKKOJLJHDK": "CircleR12",
-                            "NGDMCBABOJA": {
+                            "shapeName": "CircleR12",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.5,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.5,
+                                    "z": 0.0
                                 }
                             },
-                            "BHELOIADOLH": 5.0,
-                            "HBBLBBPBLGE": 0.0,
-                            "IPDEDFHPHPO": 1.0,
-                            "OJIFKEOCJGB": "All",
+                            "strength": 5.0,
+                            "attenuation": 0.0,
+                            "innerRadius": 1.0,
+                            "targetType": "All",
                             "predicates": [
                                 {
                                     "$type": "ByEntityTypes",
@@ -476,25 +476,25 @@
                                     "GDLDGAGGKPN": true
                                 }
                             ],
-                            "GAIGOBCNNEE": ""
+                            "modifierName": ""
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Activity_Roguelike_Gadget_Wind_Absorbe"
+                            "effectPattern": "Eff_Activity_Roguelike_Gadget_Wind_Absorbe"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Life_Timer"
+                    "modifierName": "Life_Timer"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "RogueV2_WindZone"
+                    "modifierName": "RogueV2_WindZone"
                 }
             ]
         }
@@ -503,44 +503,44 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_RockGadgetUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_RockResonance_ThinkInterval": 0.0,
                 "RogueV2_RockResonance_Damage": 0.0,
                 "RogueV2_RockGadgetUp_DefenceRatio": 0.0,
                 "RogueV2_RockGadgetUp_RockAddHurtDelta": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_RockResonance_Team": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": "RogueV2_RockResonance_ThinkInterval",
-                    "PBDDACFFPOE": [
+                    "thinkInterval": "RogueV2_RockResonance_ThinkInterval",
+                    "onThinkInterval": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
-                            "GAIGOBCNNEE": "RogueV2_RockResonance_Avatar"
+                            "target": "CurLocalAvatar",
+                            "modifierName": "RogueV2_RockResonance_Avatar"
                         }
                     ]
                 },
                 "RogueV2_RockResonance_Avatar": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetSystemValueToOverrideMap",
-                            "HJJEAOMEOFI": "SystemValue",
+                            "isFormula": "SystemValue",
                             "type": "ElementLevelCo"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR40",
-                                "ONPOPLLHJLE": "AllExceptSelf",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR40",
+                                "campTargetType": "AllExceptSelf",
+                                "sizeRatio": 1.0
                             },
                             "predicates": [
                                 {
@@ -553,39 +553,39 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_COMMON_GADGET_ISSUMMON",
+                                    "isFormula": "_COMMON_GADGET_ISSUMMON",
                                     "value": 1.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_COMMON_GADGET_ISSUMMON_NOT_ROCK",
+                                    "isFormula": "_COMMON_GADGET_ISSUMMON_NOT_ROCK",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "GAIGOBCNNEE": "RogueV2_RockGadgetUp_RockResonance_Effect"
+                            "modifierName": "RogueV2_RockGadgetUp_RockResonance_Effect"
                         }
                     ]
                 },
                 "RogueV2_RockGadgetUp_RockResonance_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
+                            "effectPattern": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 5.0
+                                    "radius": 5.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -612,55 +612,55 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_RockResonance_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_RogueV2_RockResonance_Team"
                 },
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_RockResonance_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_RogueV2_RockResonance_Team"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_EnergyMax_Strengthen",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_EnergyMax_Critical": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_EnergyMax_Strengthen_Team": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_EnergyMax_Strengthen_Handler"
+                            "modifierName": "UNIQUE_RogueV2_EnergyMax_Strengthen_Handler"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_EnergyMax_Strengthen_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.5,
-                    "FNJKJKACMCH": [
+                    "thinkInterval": 0.5,
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByEnergyChangeMixin",
-                            "FNHOFLJNEOD": [
+                            "elementTypes": [
                                 "Water",
                                 "Fire",
                                 "Electric",
@@ -669,128 +669,128 @@
                                 "Wind",
                                 "Rock"
                             ],
-                            "HAIBPADIJMD": true,
+                            "doWhenEnergyMax": true,
                             "MAJJNBBABOO": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_RogueV2_EnergyMax_Strengthen_EffectHandler"
+                                    "modifierName": "UNIQUE_RogueV2_EnergyMax_Strengthen_EffectHandler"
                                 }
                             ]
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AttachModifier",
                             "predicates": [
                                 {
                                     "$type": "ByEnergyRatio",
-                                    "GMFCOCAJBDM": "Equal",
+                                    "logic": "Equal",
                                     "ratio": 1.0
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_EnergyMax_Strengthen_EffectHandler"
+                            "modifierName": "UNIQUE_RogueV2_EnergyMax_Strengthen_EffectHandler"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
                             "predicates": [
                                 {
                                     "$type": "ByEnergyRatio",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "ratio": 1.0
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_EnergyMax_Strengthen_EffectHandler"
+                            "modifierName": "UNIQUE_RogueV2_EnergyMax_Strengthen_EffectHandler"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_EnergyMax_Strengthen_EffectHandler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": 0.0,
                             "bonusCritical": "RogueV2_EnergyMax_Critical"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_EnergyMax_Strengthen_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_RogueV2_EnergyMax_Strengthen_Team"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_ChangeAvatarCD",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AddAvatarInCDMixin",
                     "GOGAGPLLELK": 5.0
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_ChangeAvatarCD_HealMaxHpRatio": 0.0,
                 "RogueV2_ChangeAvatarCD_MoveSpeed": 0.0,
                 "RogueV2_ChangeAvatarCD_AttackSpeedRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_ChangeAvatarCD_Team": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_ChangeAvatarCD_Avatar"
+                            "modifierName": "UNIQUE_RogueV2_ChangeAvatarCD_Avatar"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_ChangeAvatarCD_Avatar": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Animator_MoveSpeedRatio": "RogueV2_ChangeAvatarCD_MoveSpeed",
                         "Animator_AttackSpeedRatio": "RogueV2_ChangeAvatarCD_AttackSpeedRatio",
                         "Actor_EndureDelta": 0.30000001192092896
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ReviveElemEnergy",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 90.0
                         },
                         {
                             "$type": "HealHP",
-                            "AJAHODOGLMH": "RogueV2_ChangeAvatarCD_HealMaxHpRatio"
+                            "amountByTargetMaxHPRatio": "RogueV2_ChangeAvatarCD_HealMaxHpRatio"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_ChangeAvatarCD_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_RogueV2_ChangeAvatarCD_Team"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_HealAndHolyNova",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "HealRatio": 0.0,
                 "DamageRatio": 0.0,
                 "RogueV2_HealAndHolyNova_CDTime": 0.0,
@@ -798,17 +798,17 @@
                 "HealAmount": 0.0,
                 "Time": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_HealAndHolyNova_Handler_Avatar": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
                     "FKNOCNGKGJE": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -816,50 +816,50 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "GetHealAmountToGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "ACOKKHADPOJ": true,
-                                    "HJJEAOMEOFI": "RogueV2_HealAndHolyNova_HealSum"
+                                    "target": "Team",
+                                    "doOffStage": true,
+                                    "isFormula": "RogueV2_HealAndHolyNova_HealSum"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_RogueV2_HealAndHolyNova_Handler_Team"
+                                    "target": "Team",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_RogueV2_HealAndHolyNova_Handler_Team"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_HealAndHolyNova_Handler_Team": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "RogueV2_HealAndHolyNova_CDTime",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "RogueV2_HealAndHolyNova_CDTime",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "ACOKKHADPOJ": true,
-                            "BPCFCANOMNH": "RogueV2_HealAndHolyNova_HealSum",
-                            "OGAHELLALBB": "HealAmount"
+                            "doOffStage": true,
+                            "globalValueKey": "RogueV2_HealAndHolyNova_HealSum",
+                            "overrideMapKey": "HealAmount"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Stages_GainWave_02"
+                            "effectPattern": "Eff_Stages_GainWave_02"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
-                            "DMCJDGELKBC": {
+                            "target": "CurLocalAvatar",
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
                                     "LCDFJLIEENG": true,
                                     "secondHeight": 2.0,
-                                    "ICGFCBOFFDI": 6.0
+                                    "radius": 6.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -884,69 +884,69 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
-                            "ACOKKHADPOJ": true,
+                            "target": "Team",
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "RogueV2_HealAndHolyNova_HealSum",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_HealAndHolyNova_HealSum",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "CurTeamAvatars",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_HealAndHolyNova_Handler_Avatar"
+                    "target": "CurTeamAvatars",
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_RogueV2_HealAndHolyNova_Handler_Avatar"
                 },
                 {
                     "$type": "SetGlobalValue",
-                    "NPHOOPNDCAC": "Team",
+                    "target": "Team",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "RogueV2_HealAndHolyNova_HealSum",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "isFormula": "RogueV2_HealAndHolyNova_HealSum",
+                    "isDynamic": 0.0,
+                    "fixedValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_NormalAttackDamageUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_NormalAttackDamageUp": 0.0,
                 "RogueV2_Blue_NormalAttackBuffMaxCount": 0.0,
                 "RogueV2_Blue_NormalAttack_BuffTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_NormalAttackDamageUp_Team": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "ActivityAbility_RogueV2_Blue_NormalAttackDamageUp_Handler"
+                            "modifierName": "ActivityAbility_RogueV2_Blue_NormalAttackDamageUp_Handler"
                         }
                     ]
                 },
                 "ActivityAbility_RogueV2_Blue_NormalAttackDamageUp_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -955,7 +955,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -966,66 +966,66 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "_Is_TowerBuff_NormalAttackDamageUp_CD",
+                                    "target": "Self",
+                                    "isFormula": "_Is_TowerBuff_NormalAttackDamageUp_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "LevelEntity_TowerBuff_NormalAttackDamageUp_Effect"
+                                    "doOffStage": true,
+                                    "modifierName": "LevelEntity_TowerBuff_NormalAttackDamageUp_Effect"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "LevelEntity_TowerBuff_NormalAttackDamageUp_CD"
+                                    "doOffStage": true,
+                                    "modifierName": "LevelEntity_TowerBuff_NormalAttackDamageUp_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "LevelEntity_TowerBuff_NormalAttackDamageUp_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_Is_TowerBuff_NormalAttackDamageUp_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Is_TowerBuff_NormalAttackDamageUp_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_Is_TowerBuff_NormalAttackDamageUp_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Is_TowerBuff_NormalAttackDamageUp_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "LevelEntity_TowerBuff_NormalAttackDamageUp_Effect": {
-                    "FGJPBKGPNJJ": "MultipleRefreshNoRemove",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": "RogueV2_Blue_NormalAttackBuffMaxCount"
+                    "stacking": "MultipleRefreshNoRemove",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": "RogueV2_Blue_NormalAttackBuffMaxCount"
                     },
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RogueV2_Blue_NormalAttack_BuffTime",
+                    "modifierName": "",
+                    "duration": "RogueV2_Blue_NormalAttack_BuffTime",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -1039,68 +1039,68 @@
                     "state": "AttackUp"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_NormalAttackDamageUp_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_RogueV2_Blue_NormalAttackDamageUp_Team"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_NormalAttack_CJB",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_NormalAttack_CJB_MaxCount": 0.0,
                 "RogueV2_Blue_NormalAttack_CJB_CD": 0.0,
                 "RogueV2_Blue_NormalAttack_CJB_Damage": 0.0,
                 "LevelEntity_SystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_NormalAttack_CJB": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_NormalAttack_CJB_Handler"
+                            "modifierName": "UNIQUE_RogueV2_Blue_NormalAttack_CJB_Handler"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_Blue_NormalAttack_CJB_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "RogueV2_Blue_NormalAttack_CJB_Count",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_Blue_NormalAttack_CJB_Count",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "RogueV2_Blue_NormalAttack_CJB_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_Blue_NormalAttack_CJB_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetSystemValueToOverrideMap",
-                            "HJJEAOMEOFI": "LevelEntity_SystemValue",
+                            "isFormula": "LevelEntity_SystemValue",
                             "type": "ElementLevelCo"
                         }
                     ],
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1109,7 +1109,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -1120,26 +1120,26 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "RogueV2_Blue_NormalAttack_CJB_CD",
+                                    "target": "Self",
+                                    "isFormula": "RogueV2_Blue_NormalAttack_CJB_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "RogueV2_Blue_NormalAttack_CJB_Count",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "isFormula": "RogueV2_Blue_NormalAttack_CJB_Count",
+                                    "isDynamic": 0.0,
+                                    "fixedValue": 0.0
                                 }
                             ]
                         },
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1148,7 +1148,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -1159,52 +1159,52 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "RogueV2_Blue_NormalAttack_CJB_Count",
+                                    "target": "Self",
+                                    "isFormula": "RogueV2_Blue_NormalAttack_CJB_Count",
                                     "value": "RogueV2_Blue_NormalAttack_CJB_MaxCount",
-                                    "ONPJJFKDCED": "MoreThanAndEqual"
+                                    "compareType": "MoreThanAndEqual"
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "RogueV2_Blue_NormalAttack_CJB_CD",
+                                    "target": "Self",
+                                    "isFormula": "RogueV2_Blue_NormalAttack_CJB_CD",
                                     "value": 0.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Other",
-                                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_NormalAttack_CJB_Effect"
+                                    "target": "Other",
+                                    "modifierName": "UNIQUE_RogueV2_Blue_NormalAttack_CJB_Effect"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_NormalAttack_CJB_CD"
+                                    "modifierName": "UNIQUE_RogueV2_Blue_NormalAttack_CJB_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_Blue_NormalAttack_CJB_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "RogueV2_Blue_NormalAttack_CJB_CD",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "RogueV2_Blue_NormalAttack_CJB_CD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Stages_GainWave_01"
+                            "effectPattern": "Eff_Stages_GainWave_01"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 5.0
+                                    "radius": 5.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1230,83 +1230,83 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "SelfCamp"
+                            "targetType": "SelfCamp"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_Blue_NormalAttack_CJB_CD": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "RogueV2_Blue_NormalAttack_CJB_CD",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "RogueV2_Blue_NormalAttack_CJB_CD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "RogueV2_Blue_NormalAttack_CJB_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_Blue_NormalAttack_CJB_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "RogueV2_Blue_NormalAttack_CJB_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_Blue_NormalAttack_CJB_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "RogueV2_Blue_NormalAttack_CJB_Count",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_Blue_NormalAttack_CJB_Count",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_NormalAttack_CJB"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_RogueV2_Blue_NormalAttack_CJB"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_ExtraAttackDamageUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_ExtraAttackDamageUp": 0.0,
                 "RogueV2_Blue_ExtraAttackBuffMaxCount": 0.0,
                 "RogueV2_Blue_ExtraAttack_BuffTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "RogueV2_Blue_ExtraAttackDamageUp_TeamHandler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "RogueV2_Blue_ExtraAttackDamageUp_Handler"
+                            "modifierName": "RogueV2_Blue_ExtraAttackDamageUp_Handler"
                         }
                     ]
                 },
                 "RogueV2_Blue_ExtraAttackDamageUp_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1315,75 +1315,75 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "ExtraAttack"
                                     ]
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_Is_TowerBuff_NormalAttackDamageUp_CD",
+                                    "target": "Team",
+                                    "isFormula": "_Is_TowerBuff_NormalAttackDamageUp_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "RogueV2_Blue_ExtraAttackDamageUp_Effect"
+                                    "doOffStage": true,
+                                    "modifierName": "RogueV2_Blue_ExtraAttackDamageUp_Effect"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "RogueV2_Blue_ExtraAttackDamageUp_CD"
+                                    "target": "Team",
+                                    "doOffStage": true,
+                                    "modifierName": "RogueV2_Blue_ExtraAttackDamageUp_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "RogueV2_Blue_ExtraAttackDamageUp_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
-                            "ACOKKHADPOJ": true,
+                            "target": "Team",
+                            "doOffStage": true,
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_Is_TowerBuff_NormalAttackDamageUp_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Is_TowerBuff_NormalAttackDamageUp_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
-                            "ACOKKHADPOJ": true,
+                            "target": "Team",
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_Is_TowerBuff_NormalAttackDamageUp_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Is_TowerBuff_NormalAttackDamageUp_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "RogueV2_Blue_ExtraAttackDamageUp_Effect": {
-                    "FGJPBKGPNJJ": "MultipleAllRefresh",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": "RogueV2_Blue_ExtraAttackBuffMaxCount"
+                    "stacking": "MultipleAllRefresh",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": "RogueV2_Blue_ExtraAttackBuffMaxCount"
                     },
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RogueV2_Blue_ExtraAttack_BuffTime",
+                    "modifierName": "",
+                    "duration": "RogueV2_Blue_ExtraAttack_BuffTime",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "ExtraAttack"
                             ],
                             "damagePercentageRatio": "RogueV2_Blue_ExtraAttackDamageUp"
@@ -1392,43 +1392,43 @@
                     "state": "AttackUp"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "RogueV2_Blue_ExtraAttackDamageUp_TeamHandler"
+                    "target": "Team",
+                    "modifierName": "RogueV2_Blue_ExtraAttackDamageUp_TeamHandler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_ExtraAttackGenerateBall",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_ExtraAttackGenerateBall_CD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "RogueV2_Blue_ExtraAttackDamageUp_TeamHandler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "RogueV2_Blue_ExtraAttackDamageUp_Handler"
+                            "modifierName": "RogueV2_Blue_ExtraAttackDamageUp_Handler"
                         }
                     ]
                 },
                 "RogueV2_Blue_ExtraAttackDamageUp_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1437,133 +1437,133 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "ExtraAttack"
                                     ]
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_RogueV2_Blue_ExtraAttackGenerateBall_CD",
+                                    "target": "Team",
+                                    "isFormula": "_RogueV2_Blue_ExtraAttackGenerateBall_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "RogueV2_Blue_ExtraAttack_GenerateBall_Effect"
+                                    "doOffStage": true,
+                                    "modifierName": "RogueV2_Blue_ExtraAttack_GenerateBall_Effect"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "RogueV2_Blue_ExtraAttack_GenerateBall_CD"
+                                    "target": "Team",
+                                    "doOffStage": true,
+                                    "modifierName": "RogueV2_Blue_ExtraAttack_GenerateBall_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "RogueV2_Blue_ExtraAttack_GenerateBall_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RogueV2_Blue_ExtraAttackGenerateBall_CD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "duration": "RogueV2_Blue_ExtraAttackGenerateBall_CD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
-                            "ACOKKHADPOJ": true,
+                            "target": "Team",
+                            "doOffStage": true,
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_RogueV2_Blue_ExtraAttackGenerateBall_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_RogueV2_Blue_ExtraAttackGenerateBall_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
-                            "ACOKKHADPOJ": true,
+                            "target": "Team",
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_RogueV2_Blue_ExtraAttackGenerateBall_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_RogueV2_Blue_ExtraAttackGenerateBall_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "RogueV2_Blue_ExtraAttack_GenerateBall_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "GenerateElemBall",
-                            "ACOKKHADPOJ": true,
-                            "APIAFGPIIHE": 2024,
-                            "NGDMCBABOJA": {
+                            "doOffStage": true,
+                            "configID": 2024,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": -1.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": -1.0
                                 },
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 1.0,
-                                    "MFBOELKCPDP": 2.0
+                                    "minRandomRange": 1.0,
+                                    "maxRandomRange": 2.0
                                 }
                             },
                             "ratio": 1.0,
-                            "GJNDGIAENMI": 2.0
+                            "baseEnergy": 2.0
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_ExtraElementBall"
+                            "effectPattern": "Eff_Weapon_ExtraElementBall"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "RogueV2_Blue_ExtraAttackDamageUp_TeamHandler"
+                    "target": "Team",
+                    "modifierName": "RogueV2_Blue_ExtraAttackDamageUp_TeamHandler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_FallingAttackDamageUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_FallingAttackDamageUp": 0.0,
                 "RogueV2_Blue_FallingAttackBuffMaxCount": 0.0,
                 "RogueV2_Blue_FallingAttack_BuffTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "RogueV2_Blue_FallingAttackDamageUp_TeamHandler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "RogueV2_Blue_FallingAttackDamageUp_Handler"
+                            "modifierName": "RogueV2_Blue_FallingAttackDamageUp_Handler"
                         }
                     ]
                 },
                 "RogueV2_Blue_FallingAttackDamageUp_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1572,75 +1572,75 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "FallingAttack"
                                     ]
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_Is_Blue_FallingAttackDamageUp_CD",
+                                    "target": "Team",
+                                    "isFormula": "_Is_Blue_FallingAttackDamageUp_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "RogueV2_Blue_FallingAttackDamageUp_Effect"
+                                    "doOffStage": true,
+                                    "modifierName": "RogueV2_Blue_FallingAttackDamageUp_Effect"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "LevelEntity_TowerBuff_AreaAttackLowHP_CD"
+                                    "target": "Team",
+                                    "doOffStage": true,
+                                    "modifierName": "LevelEntity_TowerBuff_AreaAttackLowHP_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "LevelEntity_TowerBuff_AreaAttackLowHP_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
-                            "ACOKKHADPOJ": true,
+                            "target": "Team",
+                            "doOffStage": true,
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_Is_Blue_FallingAttackDamageUp_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Is_Blue_FallingAttackDamageUp_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
-                            "ACOKKHADPOJ": true,
+                            "target": "Team",
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_Is_Blue_FallingAttackDamageUp_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Is_Blue_FallingAttackDamageUp_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "RogueV2_Blue_FallingAttackDamageUp_Effect": {
-                    "FGJPBKGPNJJ": "MultipleAllRefresh",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": "RogueV2_Blue_FallingAttackBuffMaxCount"
+                    "stacking": "MultipleAllRefresh",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": "RogueV2_Blue_FallingAttackBuffMaxCount"
                     },
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RogueV2_Blue_FallingAttack_BuffTime",
+                    "modifierName": "",
+                    "duration": "RogueV2_Blue_FallingAttack_BuffTime",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "FallingAttack"
                             ],
                             "damagePercentageRatio": "RogueV2_Blue_FallingAttackDamageUp"
@@ -1649,45 +1649,45 @@
                     "state": "AttackUp"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "RogueV2_Blue_FallingAttackDamageUp_TeamHandler"
+                    "target": "Team",
+                    "modifierName": "RogueV2_Blue_FallingAttackDamageUp_TeamHandler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_FallingAttack_ReviveEnergy",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_FallingAttack_ReviveEnergy_CD": 0.0,
                 "RogueV2_Blue_FallingAttack_ReviveEnergy": 0.0,
                 "RogueV2_Blue_FallingAttack_HealMaxHpRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "RogueV2_Blue_FallingAttack_ReviveEnergy_TeamHandler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "RogueV2_Blue_FallingAttack_ReviveEnergy_Handler"
+                            "modifierName": "RogueV2_Blue_FallingAttack_ReviveEnergy_Handler"
                         }
                     ]
                 },
                 "RogueV2_Blue_FallingAttack_ReviveEnergy_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1696,114 +1696,114 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "FallingAttack"
                                     ]
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_RogueV2_Blue_FallingAttack_ReviveEnergy_CD",
+                                    "target": "Team",
+                                    "isFormula": "_RogueV2_Blue_FallingAttack_ReviveEnergy_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "RogueV2_Blue_FallingAttack_ReviveEnergy_Effect"
+                                    "doOffStage": true,
+                                    "modifierName": "RogueV2_Blue_FallingAttack_ReviveEnergy_Effect"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "RogueV2_Blue_FallingAttack_ReviveEnergy_CD"
+                                    "target": "Team",
+                                    "doOffStage": true,
+                                    "modifierName": "RogueV2_Blue_FallingAttack_ReviveEnergy_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "RogueV2_Blue_FallingAttack_ReviveEnergy_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RogueV2_Blue_FallingAttack_ReviveEnergy_CD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "duration": "RogueV2_Blue_FallingAttack_ReviveEnergy_CD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
-                            "ACOKKHADPOJ": true,
+                            "target": "Team",
+                            "doOffStage": true,
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_RogueV2_Blue_FallingAttack_ReviveEnergy_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_RogueV2_Blue_FallingAttack_ReviveEnergy_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
-                            "ACOKKHADPOJ": true,
+                            "target": "Team",
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_RogueV2_Blue_FallingAttack_ReviveEnergy_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_RogueV2_Blue_FallingAttack_ReviveEnergy_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "RogueV2_Blue_FallingAttack_ReviveEnergy_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ReviveElemEnergy",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": "RogueV2_Blue_FallingAttack_ReviveEnergy"
                         },
                         {
                             "$type": "HealHP",
-                            "AJAHODOGLMH": "RogueV2_Blue_FallingAttack_HealMaxHpRatio"
+                            "amountByTargetMaxHPRatio": "RogueV2_Blue_FallingAttack_HealMaxHpRatio"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "RogueV2_Blue_FallingAttack_ReviveEnergy_TeamHandler"
+                    "target": "Team",
+                    "modifierName": "RogueV2_Blue_FallingAttack_ReviveEnergy_TeamHandler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_AfterUseUltimateSkill",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_AfterUseUltimateSkill_BuffTime": 0.0,
                 "RogueV2_Blue_AfterUseUltimateSkill_Ratio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "RogueV2_Blue_AfterUseUltimateSkill_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
+                    "stacking": "Unique",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MLBANMCFDAF": [
+                            "onTriggerUltimateSkill": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_AfterUseUltimateSkill_Handler_BuffEffect"
+                                    "target": "CurTeamAvatars",
+                                    "modifierName": "UNIQUE_RogueV2_Blue_AfterUseUltimateSkill_Handler_BuffEffect"
                                 }
                             ],
                             "CAHFPMLJFAK": 0.20000000298023224
@@ -1811,15 +1811,15 @@
                     ]
                 },
                 "UNIQUE_RogueV2_Blue_AfterUseUltimateSkill_Handler_BuffEffect": {
-                    "FGJPBKGPNJJ": "RefreshUniqueDurability",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "RogueV2_Blue_AfterUseUltimateSkill_BuffTime",
+                    "stacking": "RefreshUniqueDurability",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "RogueV2_Blue_AfterUseUltimateSkill_BuffTime",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Burst"
                             ],
                             "damagePercentageRatio": "RogueV2_Blue_AfterUseUltimateSkill_Ratio"
@@ -1827,48 +1827,48 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "RogueV2_Blue_AfterUseUltimateSkill_Handler"
+                    "modifierName": "RogueV2_Blue_AfterUseUltimateSkill_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_ElecSubHurtDelta",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_ElecSubHurtDelta_Ratio": 0.0,
                 "RogueV2_Blue_ElecSubHurtDelta_Duration": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_ElecSubHurtDelta_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "Shock"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Target",
-                                    "ACOKKHADPOJ": true,
-                                    "NCNDEAPMKCP": [
+                                    "target": "Target",
+                                    "doOffStage": true,
+                                    "successActions": [
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "Target",
-                                            "ACOKKHADPOJ": true,
-                                            "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_ElecSubHurtDelta_MonsterEffect"
+                                            "target": "Target",
+                                            "doOffStage": true,
+                                            "modifierName": "UNIQUE_RogueV2_Blue_ElecSubHurtDelta_MonsterEffect"
                                         }
                                     ]
                                 }
@@ -1877,66 +1877,66 @@
                     ]
                 },
                 "UNIQUE_RogueV2_Blue_ElecSubHurtDelta_MonsterEffect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "RogueV2_Blue_ElecSubHurtDelta_Duration",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "RogueV2_Blue_ElecSubHurtDelta_Duration",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_WaterSubHurtDelta": "RogueV2_Blue_ElecSubHurtDelta_Ratio",
                         "Actor_ElecSubHurtDelta": "RogueV2_Blue_ElecSubHurtDelta_Ratio"
                     },
                     "state": "DefenseDown"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_ElecSubHurtDelta_Handler"
+                    "modifierName": "UNIQUE_RogueV2_Blue_ElecSubHurtDelta_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_CalculateWaterElecAvatar",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByTeamStatusMixin",
-                    "OAEEBLALAPO": [
+                    "actions": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ActivityRogueV2_WaterAvatar_Amount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ActivityRogueV2_WaterAvatar_Amount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "ApplyModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_CalculateWaterAvatar_Handler"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_RogueV2_Blue_CalculateWaterAvatar_Handler"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_CalculateElecAvatar_Handler"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_RogueV2_Blue_CalculateElecAvatar_Handler"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_CalculateElecAvatar_CountHandler"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_RogueV2_Blue_CalculateElecAvatar_CountHandler"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ActivityRogueV2_WaterElecAvatar_Buff"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ActivityRogueV2_WaterElecAvatar_Buff"
                         },
                         {
                             "$type": "AttachModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ActivityRogueV2_WaterElecAvatar_Buff"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ActivityRogueV2_WaterElecAvatar_Buff"
                         }
                     ],
                     "IALICHIPLFB": 20.0,
@@ -1944,200 +1944,200 @@
                     "LNKBICEPIJK": true
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_WaterElecAddHurt_Ratio": 0.0,
                 "_ActivityRogueV2_WaterAvatar_Amount": 0.0,
                 "_ActivityRogueV2_ElecAvatar_Amount": 0.0,
                 "RogueV2_Blue_WaterElectAvatar_Amount": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_CalculateWaterAvatar_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasElementType",
                                     "elementType": "Water",
                                     "EAMAPOKFADD": 1,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ActivityRogueV2_WaterAvatar_Amount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ActivityRogueV2_WaterAvatar_Amount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasElementType",
                                     "elementType": "Water",
                                     "EAMAPOKFADD": 2,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 2.0,
-                            "HJJEAOMEOFI": "_ActivityRogueV2_WaterAvatar_Amount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ActivityRogueV2_WaterAvatar_Amount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasElementType",
                                     "elementType": "Water",
                                     "EAMAPOKFADD": 3,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 3.0,
-                            "HJJEAOMEOFI": "_ActivityRogueV2_WaterAvatar_Amount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ActivityRogueV2_WaterAvatar_Amount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasElementType",
                                     "elementType": "Water",
                                     "EAMAPOKFADD": 4,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 4.0,
-                            "HJJEAOMEOFI": "_ActivityRogueV2_WaterAvatar_Amount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ActivityRogueV2_WaterAvatar_Amount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_Blue_CalculateElecAvatar_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasElementType",
                                     "elementType": "Electric",
                                     "EAMAPOKFADD": 1,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ActivityRogueV2_ElecAvatar_Amount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ActivityRogueV2_ElecAvatar_Amount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasElementType",
                                     "elementType": "Electric",
                                     "EAMAPOKFADD": 2,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 2.0,
-                            "HJJEAOMEOFI": "_ActivityRogueV2_ElecAvatar_Amount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ActivityRogueV2_ElecAvatar_Amount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasElementType",
                                     "elementType": "Electric",
                                     "EAMAPOKFADD": 3,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 3.0,
-                            "HJJEAOMEOFI": "_ActivityRogueV2_ElecAvatar_Amount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ActivityRogueV2_ElecAvatar_Amount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasElementType",
                                     "elementType": "Electric",
                                     "EAMAPOKFADD": 4,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 4.0,
-                            "HJJEAOMEOFI": "_ActivityRogueV2_ElecAvatar_Amount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ActivityRogueV2_ElecAvatar_Amount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_Blue_CalculateElecAvatar_CountHandler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "ACOKKHADPOJ": true,
-                            "BPCFCANOMNH": "_ActivityRogueV2_WaterAvatar_Amount",
-                            "OGAHELLALBB": "_ActivityRogueV2_WaterAvatar_Amount"
+                            "doOffStage": true,
+                            "globalValueKey": "_ActivityRogueV2_WaterAvatar_Amount",
+                            "overrideMapKey": "_ActivityRogueV2_WaterAvatar_Amount"
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "ACOKKHADPOJ": true,
-                            "BPCFCANOMNH": "_ActivityRogueV2_ElecAvatar_Amount",
-                            "OGAHELLALBB": "_ActivityRogueV2_ElecAvatar_Amount"
+                            "doOffStage": true,
+                            "globalValueKey": "_ActivityRogueV2_ElecAvatar_Amount",
+                            "overrideMapKey": "_ActivityRogueV2_ElecAvatar_Amount"
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": [
                                 "_ActivityRogueV2_WaterAvatar_Amount",
                                 "_ActivityRogueV2_ElecAvatar_Amount",
                                 "Add"
                             ],
-                            "HJJEAOMEOFI": "RogueV2_Blue_WaterElectAvatar_Amount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_Blue_WaterElectAvatar_Amount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "ACOKKHADPOJ": true,
-                            "BPCFCANOMNH": "RogueV2_Blue_WaterElectAvatar_Amount",
-                            "OGAHELLALBB": "RogueV2_Blue_WaterElectAvatar_Amount"
+                            "doOffStage": true,
+                            "globalValueKey": "RogueV2_Blue_WaterElectAvatar_Amount",
+                            "overrideMapKey": "RogueV2_Blue_WaterElectAvatar_Amount"
                         }
                     ]
                 },
                 "UNIQUE_ActivityRogueV2_WaterElecAvatar_Buff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_WaterAddHurtDelta": [
                             "RogueV2_Blue_WaterElecAddHurt_Ratio",
                             "RogueV2_Blue_WaterElectAvatar_Amount",
@@ -2149,118 +2149,118 @@
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ActivityRogueV2_WaterAvatar_Amount",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "isFormula": "_ActivityRogueV2_WaterAvatar_Amount",
+                    "isDynamic": 0.0,
+                    "fixedValue": 0.0
                 },
                 {
                     "$type": "ApplyModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_CalculateWaterAvatar_Handler"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_RogueV2_Blue_CalculateWaterAvatar_Handler"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_CalculateElecAvatar_Handler"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_RogueV2_Blue_CalculateElecAvatar_Handler"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_CalculateElecAvatar_CountHandler"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_RogueV2_Blue_CalculateElecAvatar_CountHandler"
                 },
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_ActivityRogueV2_WaterElecAvatar_Buff"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_ActivityRogueV2_WaterElecAvatar_Buff"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_PickUpCrystal",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_PickUpCrystal_Duration": 0.0,
                 "RogueV2_Blue_PickUpCrystal_HurtRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_PickUpCrystal_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByGainCrystalSeedMixin",
-                            "FNHOFLJNEOD": [
+                            "elementTypes": [
                                 "Fire",
                                 "Water",
                                 "Electric",
                                 "Ice"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "RogueV2_Blue_PickUpCrystal_BuffEffect"
+                                    "modifierName": "RogueV2_Blue_PickUpCrystal_BuffEffect"
                                 }
                             ]
                         }
                     ]
                 },
                 "RogueV2_Blue_PickUpCrystal_BuffEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RogueV2_Blue_PickUpCrystal_Duration",
+                    "modifierName": "",
+                    "duration": "RogueV2_Blue_PickUpCrystal_Duration",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": "RogueV2_Blue_PickUpCrystal_HurtRatio"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_PickUpCrystal_Handler"
+                    "modifierName": "UNIQUE_RogueV2_Blue_PickUpCrystal_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_ShieldBeingHitDoAttack",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_ShieldBeingHitDoAttack_Dmg": 0.0,
                 "RogueV2_Blue_ShieldBeingHitDoAttack_CD": 0.0,
                 "RogueV2_Blue_ShieldCostMinusRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_ShieldBeingHitDoAttack_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_ShieldCostMinusRatio": "RogueV2_Blue_ShieldCostMinusRatio"
                     },
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -2271,41 +2271,41 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "RogueV2_Blue_ShieldBeingHitDoAttack_CD",
+                                    "target": "Team",
+                                    "isFormula": "RogueV2_Blue_ShieldBeingHitDoAttack_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "Predicated",
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByHasShield",
                                             "type": "All"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "FireEffect",
-                                            "NPHOOPNDCAC": "Caster",
-                                            "JBHFPDMBFHN": "Eff_Stages_GainWave_01",
-                                            "NGDMCBABOJA": {
+                                            "target": "Caster",
+                                            "effectPattern": "Eff_Stages_GainWave_01",
+                                            "born": {
                                                 "$type": "ConfigBornByTarget"
                                             }
                                         },
                                         {
                                             "$type": "TriggerAttackEvent",
-                                            "NPHOOPNDCAC": "Caster",
-                                            "DMCJDGELKBC": {
+                                            "target": "Caster",
+                                            "attackEvent": {
                                                 "attackPattern": {
                                                     "$type": "ConfigAttackSphere",
                                                     "lifeTime": "TriggerNoRepeat",
-                                                    "NGDMCBABOJA": {
+                                                    "born": {
                                                         "$type": "ConfigBornBySelf"
                                                     },
-                                                    "ICGFCBOFFDI": 4.0
+                                                    "radius": 4.0
                                                 },
                                                 "attackInfo": {
                                                     "attackTag": "",
@@ -2333,78 +2333,78 @@
                                                     "cameraShake": {}
                                                 }
                                             },
-                                            "OJIFKEOCJGB": "Enemy"
+                                            "targetType": "Enemy"
                                         },
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "Team",
-                                            "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_ShieldBeingHitDoAttack_CD"
+                                            "target": "Team",
+                                            "modifierName": "UNIQUE_RogueV2_Blue_ShieldBeingHitDoAttack_CD"
                                         }
                                     ]
                                 }
                             ]
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_RogueV2_Blue_ShieldBeingHitDoAttack_CD": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "RogueV2_Blue_ShieldBeingHitDoAttack_CD",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "RogueV2_Blue_ShieldBeingHitDoAttack_CD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "RogueV2_Blue_ShieldBeingHitDoAttack_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_Blue_ShieldBeingHitDoAttack_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "RogueV2_Blue_ShieldBeingHitDoAttack_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RogueV2_Blue_ShieldBeingHitDoAttack_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_ShieldBeingHitDoAttack_Handler"
+                    "modifierName": "UNIQUE_RogueV2_Blue_ShieldBeingHitDoAttack_Handler"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "HJJEAOMEOFI": "LevelEntity_SystemValue",
+                    "isFormula": "LevelEntity_SystemValue",
                     "type": "ElementLevelCo"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_ArtDamageUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_ArtDamageUp_Duration": 0.0,
                 "RogueV2_Blue_ArtDamageUp_Ratio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_ArtDamageUp_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -2413,31 +2413,31 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Elemental_Art",
                                         "Elemental_Art_Extra",
                                         "Elemental_Art_Hold"
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "RogueV2_Blue_ArtDamageUp_BuffEffect"
+                                    "doOffStage": true,
+                                    "modifierName": "RogueV2_Blue_ArtDamageUp_BuffEffect"
                                 }
                             ]
                         }
                     ]
                 },
                 "RogueV2_Blue_ArtDamageUp_BuffEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RogueV2_Blue_ArtDamageUp_Duration",
+                    "modifierName": "",
+                    "duration": "RogueV2_Blue_ArtDamageUp_Duration",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Art",
                                 "Elemental_Art_Extra",
                                 "Elemental_Art_Hold"
@@ -2447,129 +2447,129 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_ArtDamageUp_Handler"
+                    "modifierName": "UNIQUE_RogueV2_Blue_ArtDamageUp_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_BeingHealed_MaxHpUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_BeingHealed_MaxHpUp_Duration": 0.0,
                 "RogueV2_Blue_BeingHealed_MaxHpUp_MaxHPRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_BeingHealed_MaxHpUp_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
                     "CLKOPBOIEEH": [
                         {
                             "$type": "ApplyModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "RogueV2_Blue_BeingHealed_MaxHpUp_BuffEffect"
+                            "doOffStage": true,
+                            "modifierName": "RogueV2_Blue_BeingHealed_MaxHpUp_BuffEffect"
                         }
                     ]
                 },
                 "RogueV2_Blue_BeingHealed_MaxHpUp_BuffEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RogueV2_Blue_BeingHealed_MaxHpUp_Duration",
+                    "modifierName": "",
+                    "duration": "RogueV2_Blue_BeingHealed_MaxHpUp_Duration",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_MaxHPRatio": "RogueV2_Blue_BeingHealed_MaxHpUp_MaxHPRatio"
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_BeingHealed_MaxHpUp_Handler"
+                    "modifierName": "UNIQUE_RogueV2_Blue_BeingHealed_MaxHpUp_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_BeingHealed_AtkUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_BeingHealed_AtkUp_Duration": 0.0,
                 "RogueV2_Blue_BeingHealed_AtkUp_Ratio": 0.0,
                 "RogueV2_Blue_BeingHealed_AtkUp_HpRate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_BeingHealed_AtkUp_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
                     "CLKOPBOIEEH": [
                         {
                             "$type": "ApplyModifier",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByTargetHPRatio",
-                                    "BCJJBMJKHED": "RogueV2_Blue_BeingHealed_AtkUp_HpRate"
+                                    "HPRatio": "RogueV2_Blue_BeingHealed_AtkUp_HpRate"
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_BeingHealed_AtkUp_BuffEffect"
+                            "modifierName": "UNIQUE_RogueV2_Blue_BeingHealed_AtkUp_BuffEffect"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_Blue_BeingHealed_AtkUp_BuffEffect": {
-                    "FGJPBKGPNJJ": "RefreshUniqueDurability",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "RogueV2_Blue_BeingHealed_AtkUp_Duration",
+                    "stacking": "RefreshUniqueDurability",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "RogueV2_Blue_BeingHealed_AtkUp_Duration",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_AttackRatio": "RogueV2_Blue_BeingHealed_AtkUp_Ratio"
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_BeingHealed_AtkUp_Handler"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_RogueV2_Blue_BeingHealed_AtkUp_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_LoseHp_CritDmgUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_LoseHp_HPRatio": 0.0,
                 "RogueV2_Blue_LoseHp_CriticalHurtDelta": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_LoseHp_CritDmgUp_Handler_Team": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_LoseHp_CritDmgUp_AvatarHandler"
+                            "modifierName": "UNIQUE_RogueV2_Blue_LoseHp_CritDmgUp_AvatarHandler"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_Blue_LoseHp_CritDmgUp_AvatarHandler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 1.0,
+                    "onThinkInterval": [
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
@@ -2577,7 +2577,7 @@
                                     "$type": "ByIsCombat"
                                 }
                             ],
-                            "GAIGOBCNNEE": "RogueV2_Blue_LoseHp_CritDmgUp_LoseHp"
+                            "modifierName": "RogueV2_Blue_LoseHp_CritDmgUp_LoseHp"
                         },
                         {
                             "$type": "ApplyModifier",
@@ -2586,62 +2586,62 @@
                                     "$type": "ByIsCombat"
                                 }
                             ],
-                            "GAIGOBCNNEE": "RogueV2_Blue_LoseHp_CritDmgUp_BuffEffect"
+                            "modifierName": "RogueV2_Blue_LoseHp_CritDmgUp_BuffEffect"
                         }
                     ]
                 },
                 "RogueV2_Blue_LoseHp_CritDmgUp_LoseHp": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "LoseHP",
-                            "AJAHODOGLMH": "RogueV2_Blue_LoseHp_HPRatio",
-                            "NPCCIJINMGO": false
+                            "amountByTargetMaxHPRatio": "RogueV2_Blue_LoseHp_HPRatio",
+                            "lethal": false
                         }
                     ]
                 },
                 "RogueV2_Blue_LoseHp_CritDmgUp_BuffEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.100000023841858,
+                    "modifierName": "",
+                    "duration": 1.100000023841858,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": 0.0,
                             "ECGLDGPANDI": "RogueV2_Blue_LoseHp_CriticalHurtDelta"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_LoseHp_CritDmgUp_Handler_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_RogueV2_Blue_LoseHp_CritDmgUp_Handler_Team"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_ElementalDamageUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_ElementalDamageUp": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_ElementalDamageUp_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -2657,31 +2657,31 @@
                                     "predicates": [
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Fire"
+                                            "element": "Fire"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Water"
+                                            "element": "Water"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Ice"
+                                            "element": "Ice"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Electric"
+                                            "element": "Electric"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Wind"
+                                            "element": "Wind"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Rock"
+                                            "element": "Rock"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Grass"
+                                            "element": "Grass"
                                         }
                                     ]
                                 }
@@ -2690,188 +2690,188 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_ElementalDamageUp_Handler"
+                    "modifierName": "UNIQUE_RogueV2_Blue_ElementalDamageUp_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_SwirlIncreaseWindDmg",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_SwirlIncreaseWindDmg_Time": 0.0,
                 "RogueV2_Blue_SwirlIncreaseWindDmg": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_SwirlIncreaseWindDmg": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "SwirlFire",
                                 "SwirlElectric",
                                 "SwirlWater",
                                 "SwirlIce"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "RogueV2_Blue_SwirlIncreaseWindDmg_BuffEffect"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "RogueV2_Blue_SwirlIncreaseWindDmg_BuffEffect"
                                 }
                             ]
                         }
                     ]
                 },
                 "RogueV2_Blue_SwirlIncreaseWindDmg_BuffEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RogueV2_Blue_SwirlIncreaseWindDmg_Time",
+                    "modifierName": "",
+                    "duration": "RogueV2_Blue_SwirlIncreaseWindDmg_Time",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_WindAddHurtDelta": "RogueV2_Blue_SwirlIncreaseWindDmg"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_SwirlIncreaseWindDmg"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_RogueV2_Blue_SwirlIncreaseWindDmg"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_WeaponCheck",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_WeaponCheck_AtkRate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ActivityAbility_RogueV2_Blue_WeaponCheck_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "FNJKJKACMCH": [
+                    "thinkInterval": 1.0,
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_RogueV2_Blue_WeaponCheck_WeaponCount",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_RogueV2_Blue_WeaponCheck_WeaponCount",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 0.5,
                                 2.5,
                                 99.0
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Blank",
                                 "RogueV2_Blue_WeaponCheck_Handler"
                             ]
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByCurTeamWeaponTypeSort",
                                     "EAMAPOKFADD": 1,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_RogueV2_Blue_WeaponCheck_WeaponCount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_RogueV2_Blue_WeaponCheck_WeaponCount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByCurTeamWeaponTypeSort",
                                     "EAMAPOKFADD": 2,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 2.0,
-                            "HJJEAOMEOFI": "_RogueV2_Blue_WeaponCheck_WeaponCount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_RogueV2_Blue_WeaponCheck_WeaponCount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByCurTeamWeaponTypeSort",
                                     "EAMAPOKFADD": 3,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 3.0,
-                            "HJJEAOMEOFI": "_RogueV2_Blue_WeaponCheck_WeaponCount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_RogueV2_Blue_WeaponCheck_WeaponCount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByCurTeamWeaponTypeSort",
                                     "EAMAPOKFADD": 4,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 4.0,
-                            "HJJEAOMEOFI": "_RogueV2_Blue_WeaponCheck_WeaponCount",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_RogueV2_Blue_WeaponCheck_WeaponCount",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "RogueV2_Blue_WeaponCheck_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_AttackRatio": "RogueV2_Blue_WeaponCheck_AtkRate"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_RogueV2_Blue_WeaponCheck_WeaponCount",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 1.0
+                    "isFormula": "_RogueV2_Blue_WeaponCheck_WeaponCount",
+                    "useLimitRange": true,
+                    "isDynamic": 4.0,
+                    "fixedValue": 1.0
                 },
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "ActivityAbility_RogueV2_Blue_WeaponCheck_Handler"
+                    "doOffStage": true,
+                    "modifierName": "ActivityAbility_RogueV2_Blue_WeaponCheck_Handler"
                 }
             ]
         }
@@ -2880,61 +2880,61 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_RogueV2_Blue_BigCDmgUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RogueV2_Blue_BigCDmgUp_Ratio": 0.0,
                 "RogueV2_Blue_BigCDmgUp_ThinkInterval": 0.0,
                 "RogueV2_Blue_BigCDmgUp_Multiple": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_RogueV2_Blue_BigCDmgUp_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_BigCDmgUp_EffectHandler"
+                            "modifierName": "UNIQUE_RogueV2_Blue_BigCDmgUp_EffectHandler"
                         }
                     ]
                 },
                 "UNIQUE_RogueV2_Blue_BigCDmgUp_EffectHandler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": "RogueV2_Blue_BigCDmgUp_ThinkInterval",
-                    "PBDDACFFPOE": [
+                    "thinkInterval": "RogueV2_Blue_BigCDmgUp_ThinkInterval",
+                    "onThinkInterval": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
-                            "GAIGOBCNNEE": "RogueV2_Blue_BigCDmgUp_Effect"
+                            "target": "CurLocalAvatar",
+                            "modifierName": "RogueV2_Blue_BigCDmgUp_Effect"
                         }
                     ]
                 },
                 "RogueV2_Blue_BigCDmgUp_Effect": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": "RogueV2_Blue_BigCDmgUp_Multiple"
+                    "stacking": "Multiple",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": "RogueV2_Blue_BigCDmgUp_Multiple"
                     },
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": "RogueV2_Blue_BigCDmgUp_Ratio"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_RogueV2_Blue_BigCDmgUp_Handler"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_RogueV2_Blue_BigCDmgUp_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

@@ -3,53 +3,53 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Activity_Hachi_TeamAbility",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_CAN_CLEAR_THREAT",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_CAN_CLEAR_THREAT",
+                    "valueSteps": [
                         -0.5,
                         0.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank"
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "IsInHachiSneak": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "PlayerDieHandle": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "ServerLuaCall",
-                            "ACOKKHADPOJ": true,
-                            "MINNFFNDCJH": "CurChallengeGroup",
-                            "PDFANJKMFNK": "SLC_PlayerDie_DuringQuest",
-                            "LIOGECEPJAH": 0.0,
-                            "FDDPMCCJIKN": 0.0,
-                            "KNJMHMKNCKF": 0.0
+                            "doOffStage": true,
+                            "luaCallType": "CurChallengeGroup",
+                            "funcName": "SLC_PlayerDie_DuringQuest",
+                            "param1": 0.0,
+                            "param2": 0.0,
+                            "param3": 0.0
                         }
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "IsInHachiSneak"
+                    "modifierName": "IsInHachiSneak"
                 },
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "AllPlayerAvatars",
-                    "GAIGOBCNNEE": "PlayerDieHandle"
+                    "target": "AllPlayerAvatars",
+                    "modifierName": "PlayerDieHandle"
                 }
             ]
         }

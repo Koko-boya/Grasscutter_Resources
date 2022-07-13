@@ -3,190 +3,190 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MichiaeMatsuri_TestAbility",
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MichiaeMatsuri_DefenceUp_HealthUp",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_MichiaeMatsuri_CrystalSkill_1",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_MichiaeMatsuri_CrystalSkill_1",
+                    "valueSteps": [
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Activity_MichiaeMatsuri_DefenceUp_HealthUp_Handler"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DefenceUpRate": 0.0,
                 "MaxHpUpRate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_MichiaeMatsuri_DefenceUp_HealthUp_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_DefenceUp_HealthUp_Handler_TriggerAbility"
+                            "modifierName": "UNIQUE_Activity_MichiaeMatsuri_DefenceUp_HealthUp_Handler_TriggerAbility"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_DefenceUp_HealthUp_Handler_TriggerAbility": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerAbility",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "abilityName": "ActivityAbility_MichiaeMatsuri_DefenceUp_HealthUp"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_DefenceUp_HealthUp": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_DefenceRatio": "DefenceUpRate",
                         "Actor_MaxHPRatio": "MaxHpUpRate"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "CurTeamAvatars",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_DefenceUp_HealthUp"
+                    "target": "CurTeamAvatars",
+                    "modifierName": "UNIQUE_Activity_MichiaeMatsuri_DefenceUp_HealthUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MichiaeMatsuri_ElementalBurstDamageUp",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_MichiaeMatsuri_CrystalSkill_2",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_MichiaeMatsuri_CrystalSkill_2",
+                    "valueSteps": [
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Activity_MichiaeMatsuri_ElementalBurstDamageUp_Handler"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ElementalBurstDamageUpRate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_MichiaeMatsuri_ElementalBurstDamageUp_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_ElementalBurstDamageUp_Action_ApplyToAllAvatars"
+                            "modifierName": "UNIQUE_Activity_MichiaeMatsuri_ElementalBurstDamageUp_Action_ApplyToAllAvatars"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_ElementalBurstDamageUp_Action_ApplyToAllAvatars": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_ElementalBurstDamageUp"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "UNIQUE_Activity_MichiaeMatsuri_ElementalBurstDamageUp"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_ElementalBurstDamageUp": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Burst"
                             ],
                             "damagePercentageRatio": "ElementalBurstDamageUpRate"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MichiaeMatsuri_MeleeWeaponDamageUp",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_MichiaeMatsuri_CrystalSkill_3",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_MichiaeMatsuri_CrystalSkill_3",
+                    "valueSteps": [
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Activity_MichiaeMatsuri_MeleeWeaponDamageUp_Handler"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "MeleeWeaponDamageUpRate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_MichiaeMatsuri_MeleeWeaponDamageUp_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_MeleeWeaponDamageUp_Decision_IsMeleeWeapon"
+                            "modifierName": "UNIQUE_Activity_MichiaeMatsuri_MeleeWeaponDamageUp_Decision_IsMeleeWeapon"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_MeleeWeaponDamageUp_Decision_IsMeleeWeapon": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
                             "predicates": [
                                 {
                                     "$type": "ByAvatarWeaponType",
-                                    "NPHOOPNDCAC": "Self",
+                                    "target": "Self",
                                     "EBMGNAOCOBG": [
                                         "WEAPON_CLAYMORE",
                                         "WEAPON_POLE",
@@ -194,20 +194,20 @@
                                     ]
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_MeleeWeaponDamageUp"
+                            "modifierName": "UNIQUE_Activity_MichiaeMatsuri_MeleeWeaponDamageUp"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_MeleeWeaponDamageUp": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -220,198 +220,198 @@
                             "damagePercentageRatio": "MeleeWeaponDamageUpRate"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MichiaeMatsuri_RangedWeapon_AtkSpeedUp",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_MichiaeMatsuri_CrystalSkill_4",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_MichiaeMatsuri_CrystalSkill_4",
+                    "valueSteps": [
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Activity_MichiaeMatsuri_RangedWeapon_AtkSpeedUp_Handler"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "AttackSpeedUpRate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_MichiaeMatsuri_RangedWeapon_AtkSpeedUp_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_RangedWeapon_AtkSpeedUp_Decision_IsRangedWeapon"
+                            "modifierName": "UNIQUE_Activity_MichiaeMatsuri_RangedWeapon_AtkSpeedUp_Decision_IsRangedWeapon"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_RangedWeapon_AtkSpeedUp_Decision_IsRangedWeapon": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAvatarWeaponType",
-                                    "NPHOOPNDCAC": "Self",
+                                    "target": "Self",
                                     "EBMGNAOCOBG": [
                                         "WEAPON_BOW",
                                         "WEAPON_CATALYST"
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_RangedWeapon_AtkSpeedUp_Action_AtkSpeedUp"
+                                    "modifierName": "UNIQUE_Activity_MichiaeMatsuri_RangedWeapon_AtkSpeedUp_Action_AtkSpeedUp"
                                 }
                             ]
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_RangedWeapon_AtkSpeedUp_Action_AtkSpeedUp": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Animator_AttackSpeedRatio": "AttackSpeedUpRate"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MichiaeMatsuri_Explode_Superconductor_Shock_SwirlElec_DmgUp",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_MichiaeMatsuri_CrystalSkill_5",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_MichiaeMatsuri_CrystalSkill_5",
+                    "valueSteps": [
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Activity_MichiaeMatsuri_Explode_Superconductor_Shock_SwirlElec_DmgUp_Handler"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DamageUpRate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_MichiaeMatsuri_Explode_Superconductor_Shock_SwirlElec_DmgUp_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_Explode_Superconductor_Shock_SwirlElec_DmgUp_Action_ApplyToAllAvatars"
+                            "modifierName": "UNIQUE_Activity_MichiaeMatsuri_Explode_Superconductor_Shock_SwirlElec_DmgUp_Action_ApplyToAllAvatars"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_Explode_Superconductor_Shock_SwirlElec_DmgUp_Action_ApplyToAllAvatars": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerAbility",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "abilityName": "ActivityAbility_MichiaeMatsuri_Explode_Superconductor_Shock_SwirlElec_DmgUp"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_Explode_Superconductor_Shock_SwirlElec_DmgUp": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_ElemReactSwirlElectricDelta": "DamageUpRate",
                         "Actor_ElemReactSConductDelta": "DamageUpRate",
                         "Actor_ElemReactElectricDelta": "DamageUpRate",
                         "Actor_ElemReactExplodeDelta": "DamageUpRate"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "CurTeamAvatars",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_Explode_Superconductor_Shock_SwirlElec_DmgUp"
+                    "target": "CurTeamAvatars",
+                    "modifierName": "UNIQUE_Activity_MichiaeMatsuri_Explode_Superconductor_Shock_SwirlElec_DmgUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MichiaeMatsuri_StaminaCostDown_StaminaRecoverUp",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_MichiaeMatsuri_CrystalSkill_6",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_MichiaeMatsuri_CrystalSkill_6",
+                    "valueSteps": [
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Activity_MichiaeMatsuri_StaminaCostDown_StaminaRecoverUp_Handler"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "CostStaminaDownRate": 0.0,
                 "RecoverStaminaUpRate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_MichiaeMatsuri_StaminaCostDown_StaminaRecoverUp_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_StaminaCostDown_StaminaRecoverUp"
+                            "modifierName": "UNIQUE_Activity_MichiaeMatsuri_StaminaCostDown_StaminaRecoverUp"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_StaminaCostDown_StaminaRecoverUp": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_CostStaminaRatio": [
                             0.0,
                             1.0,
@@ -421,88 +421,88 @@
                         ],
                         "Actor_RecoverStaminaRatio": "RecoverStaminaUpRate"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MichiaeMatsuri_OnCrystalAttackLand",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_MichiaeMatsuri_CrystalLevel",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_MichiaeMatsuri_CrystalLevel",
+                    "valueSteps": [
                         7.5,
                         15.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Activity_MichiaeMatsuri_OnCrystalAttackLand_Handler"
                     ]
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_MichiaeMatsuri_CrystalLevel",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_MichiaeMatsuri_CrystalLevel",
+                    "valueSteps": [
                         12.5,
                         15.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Activity_MichiaeMatsuri_OnCrystalAttackLand_SetSubHurtDownLevel"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "SubHurtDownRate": 0.0,
                 "SubHurtDownDuration": 0.0,
                 "SubHurtDownLevel": 1.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_MichiaeMatsuri_OnCrystalAttackLand_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_OnCrystalAttackLand"
+                            "modifierName": "UNIQUE_Activity_MichiaeMatsuri_OnCrystalAttackLand"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_OnCrystalAttackLand_SetSubHurtDownLevel": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetOverrideMapValue",
-                            "NPHOOPNDCAC": "Team",
-                            "CFIPAGENGPE": true,
+                            "target": "Team",
+                            "canBeHandledOnRecover": true,
                             "value": 2.0,
-                            "OGAHELLALBB": "SubHurtDownLevel"
+                            "overrideMapKey": "SubHurtDownLevel"
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_OnCrystalAttackLand": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NPHOOPNDCAC": "Team",
-                                    "NMJGDKCDFOJ": [
+                                    "target": "Team",
+                                    "attackTags": [
                                         "MichiaeMatsuri_CrystalAttack"
                                     ]
                                 },
@@ -514,32 +514,32 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "isFormula": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Other",
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_MichiaeMatsuri_MonsterAllElementalSubHurtDown"
+                                    "target": "Other",
+                                    "modifierName": "UNIQUE_Activity_MichiaeMatsuri_MonsterAllElementalSubHurtDown"
                                 },
                                 {
                                     "$type": "DebugLog",
-                                    "CBEDAJEGJBM": "命中怪物"
+                                    "content": "命中怪物"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_MichiaeMatsuri_MonsterAllElementalSubHurtDown": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "SubHurtDownDuration",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "SubHurtDownDuration",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_FireSubHurtDelta": [
                             0.0,
                             1.0,
@@ -614,16 +614,16 @@
                         ]
                     },
                     "state": "DefenseDown",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "wenchuan.xie_Test: 怪物易伤"
+                            "content": "wenchuan.xie_Test: 怪物易伤"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

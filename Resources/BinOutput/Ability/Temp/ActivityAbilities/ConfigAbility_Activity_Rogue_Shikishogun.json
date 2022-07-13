@@ -3,34 +3,34 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_Rogue_Shikishogun",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "FollowAttachPointEffectMixin",
-                    "GAIGOBCNNEE": "UNIQUE_Ability_Rogue_Shikishogun_EffectHandler",
-                    "LBCJDGDFIBC": "ActivityEvent"
+                    "modifierName": "UNIQUE_Ability_Rogue_Shikishogun_EffectHandler",
+                    "attachPriority": "ActivityEvent"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Ability_Rogue_Shikishogun_EffectHandler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Activity_Shikishogun"
+                            "effectPattern": "Eff_Activity_Shikishogun"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SendEffectTrigger",
-                    "MOCGJNIDDAI": "Skill01",
-                    "JBHFPDMBFHN": "Eff_Activity_Shikishogun"
+                    "parameter": "Skill01",
+                    "effectPattern": "Eff_Activity_Shikishogun"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

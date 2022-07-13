@@ -3,60 +3,60 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Activity_WinterCamp_TeamAbility",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "WinterCamp_RocketJump",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "WinterCamp_RocketJump",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "UNIQUE_WinterCamp_RocketJump"
                     ]
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "WinterCamp_Shield",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "WinterCamp_Shield",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "UNIQUE_WinterCamp_Shield"
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_WinterCamp_CameraFixDelay": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 2.25,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 2.25,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_WinterCamp_CameraFix"
+                            "modifierName": "UNIQUE_WinterCamp_CameraFix"
                         }
                     ]
                 },
                 "UNIQUE_WinterCamp_CameraFix": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyCameraMaxDistanceMixin",
                             "DJEMCPFGEPN": 10.0,
@@ -67,114 +67,114 @@
                     ]
                 },
                 "UNIQUE_WinterCamp_RocketJump": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "WinterCamp_RocketJump_Avator"
+                            "modifierName": "WinterCamp_RocketJump_Avator"
                         }
                     ]
                 },
                 "UNIQUE_WinterCamp_Shield": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "WinterCamp_Shield_Avator"
+                            "modifierName": "WinterCamp_Shield_Avator"
                         }
                     ]
                 },
                 "WinterCamp_RocketJump_Avator": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableRocketJump",
-                            "CFIPAGENGPE": true,
+                            "canBeHandledOnRecover": true,
                             "type": "DungeonJump",
                             "enable": true,
-                            "MJIDJNMCKCP": {
-                                "IMLKBGMCLLH": 2.299999952316284,
-                                "HFBNHJBODPH": 5.0
+                            "extention": {
+                                "xzMultiplier": 2.299999952316284,
+                                "yMultiplier": 5.0
                             },
                             "CFCMBANBCFG": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_JumpUp_01_Buff"
+                            "effectPattern": "Eff_SceneObj_JumpUp_01_Buff"
                         },
                         {
                             "$type": "ChangePlayMode",
-                            "ACOKKHADPOJ": true,
-                            "POKMJEIDNJF": true,
-                            "KDNEFEJINAA": "WinterCampRace"
+                            "doOffStage": true,
+                            "muteRemoteAction": true,
+                            "toPlayMode": "WinterCampRace"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableRocketJump",
-                            "ACOKKHADPOJ": true,
-                            "CFIPAGENGPE": true,
+                            "doOffStage": true,
+                            "canBeHandledOnRecover": true,
                             "type": "DungeonJump",
                             "CFCMBANBCFG": true
                         },
                         {
                             "$type": "ChangePlayMode",
-                            "ACOKKHADPOJ": true,
-                            "POKMJEIDNJF": true
+                            "doOffStage": true,
+                            "muteRemoteAction": true
                         }
                     ]
                 },
                 "WinterCamp_DenyShield_Attack": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "WinterCamp_Deny_Hit",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "WinterCamp_Deny_Hit",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "WinterCamp_Deny_Hit",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "WinterCamp_Deny_Hit",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "WinterCamp_Shield_Avator": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.10000000149011612,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.10000000149011612,
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "ACOKKHADPOJ": true,
-                            "JBHFPDMBFHN": "Eff_SceneObj_ShieldPower_01_Buff"
+                            "doOffStage": true,
+                            "effectPattern": "Eff_SceneObj_ShieldPower_01_Buff"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR2H8",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR2H8",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -183,26 +183,26 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "WinterCamp_Deny_Hit",
+                                    "isFormula": "WinterCamp_Deny_Hit",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Other",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Other",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_IS_PARKOUR_BREAKABLE",
+                                            "isFormula": "_IS_PARKOUR_BREAKABLE",
                                             "value": 1.0
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "DamageByAttackValue",
-                                            "NPHOOPNDCAC": "Other",
+                                            "target": "Other",
                                             "attackInfo": {
                                                 "attackTag": "WinterCamp_ShieldAttack",
                                                 "attenuationTag": "",
@@ -230,37 +230,37 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "WinterCamp_RocketJump",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "isFormula": "WinterCamp_RocketJump",
+                    "isDynamic": 0.0,
+                    "fixedValue": 0.0
                 },
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "WinterCamp_Shield",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "isFormula": "WinterCamp_Shield",
+                    "isDynamic": 0.0,
+                    "fixedValue": 0.0
                 },
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "WinterCamp_Stamina",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "isFormula": "WinterCamp_Stamina",
+                    "isDynamic": 0.0,
+                    "fixedValue": 0.0
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_WinterCamp_CameraFixDelay"
+                    "modifierName": "UNIQUE_WinterCamp_CameraFixDelay"
                 }
             ],
-            "ILBIENDPCBG": [
+            "onRemoved": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "UNIQUE_WinterCamp_CameraFix"
+                    "modifierName": "UNIQUE_WinterCamp_CameraFix"
                 }
             ]
         }
@@ -269,141 +269,141 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Activity_WinterCamp_BattleCampTeam",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "SGV_WinterCamp_PlayerBuff",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_WinterCamp_PlayerBuff",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_ActivityAbility_WinterCamp_BattleCamp"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ReviveEnergy": 2.5,
                 "DamagePercentage": 23.5,
                 "LevelEntity_AvatarDot_SystemValue": 1.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_WinterCamp_BattleCamp": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "ActivityAbility_WinterCamp_AvatarBuff_Explode"
+                            "modifierName": "ActivityAbility_WinterCamp_AvatarBuff_Explode"
                         },
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "ActivityAbility_WinterCamp_AvatarBuff_Energy"
+                            "modifierName": "ActivityAbility_WinterCamp_AvatarBuff_Energy"
                         }
                     ]
                 },
                 "ActivityAbility_WinterCamp_AvatarBuff_Energy": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 1.0,
+                    "onThinkInterval": [
                         {
                             "$type": "ReviveElemEnergy",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": "ReviveEnergy"
                         }
                     ]
                 },
                 "ActivityAbility_WinterCamp_Monster_SendPos": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "GILFKOBKGLI": {
+                            "target": "Other",
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR40",
-                                "ONPOPLLHJLE": "AllExceptSelf",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR40",
+                                "campTargetType": "AllExceptSelf",
+                                "sizeRatio": 1.0
                             },
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "IS_MAIN_DEVICE",
+                                    "isFormula": "IS_MAIN_DEVICE",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalPos",
-                                    "NPHOOPNDCAC": "Other",
-                                    "HJJEAOMEOFI": "_Ability_WinterCamp_AoePos_Final",
-                                    "NGDMCBABOJA": {
+                                    "target": "Other",
+                                    "isFormula": "_Ability_WinterCamp_AoePos_Final",
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         },
-                                        "JBPCKOKLHEB": true
+                                        "onGround": true
                                     }
                                 },
                                 {
                                     "$type": "TriggerAbility",
-                                    "NPHOOPNDCAC": "Other",
+                                    "target": "Other",
                                     "abilityName": "LjxsCampMainDevice_01_Explode",
-                                    "EDDGGPMFDGK": {
+                                    "abilitySpecials": {
                                         "LevelEntity_AvatarDot_SystemValue": "LevelEntity_AvatarDot_SystemValue"
                                     }
                                 },
                                 {
                                     "$type": "RemoveModifier",
-                                    "GAIGOBCNNEE": "ActivityAbility_WinterCamp_Monster_SendPos"
+                                    "modifierName": "ActivityAbility_WinterCamp_Monster_SendPos"
                                 }
                             ]
                         }
                     ]
                 },
                 "ActivityAbility_WinterCamp_AvatarBuff_Explode": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetSystemValueToOverrideMap",
-                            "HJJEAOMEOFI": "LevelEntity_AvatarDot_SystemValue",
+                            "isFormula": "LevelEntity_AvatarDot_SystemValue",
                             "type": "ElementLevelCo"
                         }
                     ],
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "CurLocalAvatar",
-                                            "HJJEAOMEOFI": "HAS_BLOOD_BUFF_MARK",
+                                            "target": "CurLocalAvatar",
+                                            "isFormula": "HAS_BLOOD_BUFF_MARK",
                                             "value": 1.0
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "CurLocalAvatar",
-                                            "HJJEAOMEOFI": "HAS_BLOOD_BUFF_MARK_NORMAL",
+                                            "target": "CurLocalAvatar",
+                                            "isFormula": "HAS_BLOOD_BUFF_MARK_NORMAL",
                                             "value": 1.0
                                         }
                                     ]
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "Can_Trigger_Aoe",
+                                    "target": "Team",
+                                    "isFormula": "Can_Trigger_Aoe",
                                     "value": 1.0
                                 },
                                 {
@@ -414,7 +414,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -430,94 +430,94 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Other",
-                                    "GAIGOBCNNEE": "ActivityAbility_WinterCamp_Monster_SendPos"
+                                    "target": "Other",
+                                    "modifierName": "ActivityAbility_WinterCamp_Monster_SendPos"
                                 },
                                 {
                                     "$type": "SetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
+                                    "target": "Team",
                                     "value": 0.0,
-                                    "HJJEAOMEOFI": "Can_Trigger_Aoe",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "isFormula": "Can_Trigger_Aoe",
+                                    "isDynamic": 0.0,
+                                    "fixedValue": 0.0
                                 }
                             ]
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
-                    "NPHOOPNDCAC": "Team",
+                    "target": "Team",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ActivityAbility_WinterCamp_BattleCamp_CD",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "isFormula": "_ActivityAbility_WinterCamp_BattleCamp_CD",
+                    "isDynamic": 0.0,
+                    "fixedValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Activity_WinterCamp_BattleCampAvatar",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "HAS_BLOOD_BUFF_MARK_NORMAL",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "HAS_BLOOD_BUFF_MARK_NORMAL",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "MuteTriggerAoe",
                         "CanTriggerAoe"
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "MuteTriggerAoe": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "CanTriggerAoe": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "Can_Trigger_Aoe",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "Can_Trigger_Aoe",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_WinterCampMimik_WatcherHandler_BrokenFruitKick",
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_WinterCampMimik_WatcherHandler_EnergyChitInteract",
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

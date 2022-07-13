@@ -3,22 +3,22 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Purple_HealthyDamage_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DamageLow": 0.0,
                 "DamageHigh": 0.0,
                 "DamageSystemValue": 0.0,
                 "CDTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Purple_HealthyDamage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -27,46 +27,46 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_EnergyDisk_Purple_HealthyDamage_CD",
+                                    "target": "Team",
+                                    "isFormula": "_EnergyDisk_Purple_HealthyDamage_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Other",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Other",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetHPRatio",
-                                            "NPHOOPNDCAC": "Caster",
-                                            "GMFCOCAJBDM": "Lesser",
-                                            "BCJJBMJKHED": 0.9900000095367432
+                                            "target": "Caster",
+                                            "logic": "Lesser",
+                                            "HPRatio": 0.9900000095367432
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "AttachModifier",
-                                            "NPHOOPNDCAC": "Other",
-                                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_HealthyDamage_AOE_LowHp"
+                                            "target": "Other",
+                                            "modifierName": "UNIQUE_EnergyDisk_Purple_HealthyDamage_AOE_LowHp"
                                         },
                                         {
                                             "$type": "AttachModifier",
-                                            "NPHOOPNDCAC": "Team",
-                                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_HealthyDamage_CDHandler"
+                                            "target": "Team",
+                                            "modifierName": "UNIQUE_EnergyDisk_Purple_HealthyDamage_CDHandler"
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "AttachModifier",
-                                            "NPHOOPNDCAC": "Other",
-                                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_HealthyDamage_AOE_HighHp"
+                                            "target": "Other",
+                                            "modifierName": "UNIQUE_EnergyDisk_Purple_HealthyDamage_AOE_HighHp"
                                         },
                                         {
                                             "$type": "AttachModifier",
-                                            "NPHOOPNDCAC": "Team",
-                                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_HealthyDamage_CDHandler"
+                                            "target": "Team",
+                                            "modifierName": "UNIQUE_EnergyDisk_Purple_HealthyDamage_CDHandler"
                                         }
                                     ]
                                 }
@@ -75,26 +75,26 @@
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_HealthyDamage_AOE_HighHp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
+                            "effectPattern": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "NPHOOPNDCAC": "Caster",
-                            "DMCJDGELKBC": {
+                            "target": "Caster",
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 4.0
+                                    "radius": 4.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -122,31 +122,31 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_HealthyDamage_AOE_LowHp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
+                            "effectPattern": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "NPHOOPNDCAC": "Caster",
-                            "DMCJDGELKBC": {
+                            "target": "Caster",
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 4.0
+                                    "radius": 4.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -174,88 +174,88 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_HealthyDamage_CDHandler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "CDTime",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "CDTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_EnergyDisk_Purple_HealthyDamage_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_EnergyDisk_Purple_HealthyDamage_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_EnergyDisk_Purple_HealthyDamage_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_EnergyDisk_Purple_HealthyDamage_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_HealthyDamage"
+                    "modifierName": "UNIQUE_EnergyDisk_Purple_HealthyDamage"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "ACOKKHADPOJ": true,
-                    "HJJEAOMEOFI": "DamageSystemValue",
+                    "doOffStage": true,
+                    "isFormula": "DamageSystemValue",
                     "type": "ElementLevelCo"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Purple_Berserker_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0,
                 "AttackSpeed_Rate": 0.0,
                 "ReviveTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Purple_Berserker_RecoveryLayers": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": "ReviveTime",
-                    "PBDDACFFPOE": [
+                    "thinkInterval": "ReviveTime",
+                    "onThinkInterval": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_EnergyDisk_Purple_AttackBuffLevel",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ABILITY_EnergyDisk_Purple_AttackBuffLevel",
+                            "useLimitRange": true,
+                            "isDynamic": 5.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_Berserker": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_EnergyDisk_Purple_AttackBuffLevel",
-                            "FEGIOIGELHB": 5.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_EnergyDisk_Purple_AttackBuffLevel",
+                            "defaultGlobalValueOnCreate": 5.0,
+                            "valueSteps": [
                                 -1.5,
                                 -0.5,
                                 0.5,
@@ -265,7 +265,7 @@
                                 4.5,
                                 5.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_EnergyDisk_Purple_Berserker_ResetTimer",
                                 "UNIQUE_EnergyDisk_Purple_BerserkerBuff0",
                                 "UNIQUE_EnergyDisk_Purple_BerserkerBuff1",
@@ -276,16 +276,16 @@
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_Berserker_Handler"
+                            "modifierName": "UNIQUE_EnergyDisk_Purple_Berserker_Handler"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_Berserker_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
                     "onBeingHit": [
                         {
@@ -293,62 +293,62 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_Berserker_ResetCD"
+                            "modifierName": "UNIQUE_EnergyDisk_Purple_Berserker_ResetCD"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_Berserker_ResetCD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 1.0,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ABILITY_EnergyDisk_Purple_AttackBuffLevel",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": -1.0
+                            "isFormula": "_ABILITY_EnergyDisk_Purple_AttackBuffLevel",
+                            "useLimitRange": true,
+                            "isDynamic": 5.0,
+                            "fixedValue": -1.0
                         },
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "受击触发globalvalue变更"
+                            "content": "受击触发globalvalue变更"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_Berserker_ResetTimer": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.30000001192092896
+                    "thinkInterval": 0.30000001192092896
                 },
                 "UNIQUE_EnergyDisk_Purple_BerserkerBuff0": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_EnergyDisk_Purple_AttackBuffLevel",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ABILITY_EnergyDisk_Purple_AttackBuffLevel",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_BerserkerBuff1": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -363,21 +363,21 @@
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ExtraAtkKill01"
+                            "effectPattern": "Eff_EnergyDisk_ExtraAtkKill01"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_BerserkerBuff2": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -392,21 +392,21 @@
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ExtraAtkKill02"
+                            "effectPattern": "Eff_EnergyDisk_ExtraAtkKill02"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_BerserkerBuff3": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -421,21 +421,21 @@
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ExtraAtkKill03"
+                            "effectPattern": "Eff_EnergyDisk_ExtraAtkKill03"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_BerserkerBuff4": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -450,21 +450,21 @@
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ExtraAtkKill04"
+                            "effectPattern": "Eff_EnergyDisk_ExtraAtkKill04"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_BerserkerBuff5": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -479,59 +479,59 @@
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Animator_AttackSpeedRatio": "AttackSpeed_Rate"
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ExtraAtkKill05"
+                            "effectPattern": "Eff_EnergyDisk_ExtraAtkKill05"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_Berserker"
+                    "modifierName": "UNIQUE_EnergyDisk_Purple_Berserker"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_Berserker_RecoveryLayers"
+                    "modifierName": "UNIQUE_EnergyDisk_Purple_Berserker_RecoveryLayers"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Purple_PickupTriggerAOE_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DamageRate": 0.0,
                 "CDTime": 0.0,
                 "RockAddHurt": 0.0,
                 "Bufftime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE_Total": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "ADMJDEELAPK": "MPLevel",
-                            "BPCFCANOMNH": "_Ability_PickupTriggerAOE_CD",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueTarget": "MPLevel",
+                            "globalValueKey": "_Ability_PickupTriggerAOE_CD",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -1.5,
                                 -0.5,
                                 0.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_EnergyDisk_PickupTriggerAOE_Cd",
                                 "Blank"
                             ]
@@ -539,33 +539,33 @@
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_EnergyDisk_PickupTriggerAOE_CD_Change_MPLEVEL": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_Ability_PickupTriggerAOE_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Ability_PickupTriggerAOE_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByGainCrystalSeedMixin",
-                            "FNHOFLJNEOD": [
+                            "elementTypes": [
                                 "Fire",
                                 "Water",
                                 "Grass",
@@ -574,26 +574,26 @@
                                 "Wind",
                                 "Rock"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "MPLevel",
-                                    "ELDBAFHCOBL": [
+                                    "target": "MPLevel",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_Ability_PickupTriggerAOE_CD",
+                                            "isFormula": "_Ability_PickupTriggerAOE_CD",
                                             "value": 0.0
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "ApplyModifier",
-                                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE_Effect"
+                                            "modifierName": "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE_Effect"
                                         },
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "MPLevel",
-                                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_PickupTriggerAOE_CD_Change_MPLEVEL"
+                                            "target": "MPLevel",
+                                            "modifierName": "UNIQUE_EnergyDisk_PickupTriggerAOE_CD_Change_MPLEVEL"
                                         }
                                     ]
                                 }
@@ -602,27 +602,27 @@
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
+                            "effectPattern": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 4.0
+                                    "radius": 4.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -643,114 +643,114 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "AllPlayerAvatars",
-                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE_BuffAvatarEffect"
+                            "target": "AllPlayerAvatars",
+                            "modifierName": "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE_BuffAvatarEffect"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE_BuffAvatarEffect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Bufftime",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Bufftime",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_RockAddHurtDelta": "RockAddHurt"
                     }
                 },
                 "UNIQUE_EnergyDisk_PickupTriggerAOE_Cd": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": "CDTime",
-                    "PBDDACFFPOE": [
+                    "thinkInterval": "CDTime",
+                    "onThinkInterval": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_Ability_PickupTriggerAOE_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Ability_PickupTriggerAOE_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "MPLevel",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE_Total"
+                    "target": "MPLevel",
+                    "modifierName": "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE_Total"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE"
+                    "modifierName": "UNIQUE_EnergyDisk_Purple_PickupTriggerAOE"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Purple_ElementBurst_Count3Wave_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Bufftime": 0.0,
                 "Delta": 0.0,
                 "ElementBurst_Wave_Damage": 0.0,
                 "LevelEntity_Count3Wave_SystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Purple_ElementBurst_Count3Wave_MPLevel_Init": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_ElementBurst_Layer",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ABILITY_ElementBurst_Layer",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Purple_ElementBurst_Count3Wave_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MLBANMCFDAF": [
+                            "onTriggerUltimateSkill": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "MPLevel",
-                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurst_AddLayer"
+                                    "target": "MPLevel",
+                                    "modifierName": "UNIQUE_EnergyDisk_ElementBurst_AddLayer"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "MPLevel",
-                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL"
+                                    "target": "MPLevel",
+                                    "modifierName": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL"
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "MPLevel",
-                                    "ELDBAFHCOBL": [
+                                    "target": "MPLevel",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_ElementBurst_Layer",
+                                            "isFormula": "_ABILITY_ElementBurst_Layer",
                                             "value": 4.0,
-                                            "ONPJJFKDCED": "MoreThanAndEqual"
+                                            "compareType": "MoreThanAndEqual"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "ApplyModifier",
-                                            "GAIGOBCNNEE": "UNIQUE_ElementBurst_Count3Wave_3_Extra_Effect"
+                                            "modifierName": "UNIQUE_ElementBurst_Count3Wave_3_Extra_Effect"
                                         }
                                     ]
                                 }
@@ -759,17 +759,17 @@
                         },
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "ADMJDEELAPK": "MPLevel",
-                            "BPCFCANOMNH": "_ABILITY_ElementBurst_Layer",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueTarget": "MPLevel",
+                            "globalValueKey": "_ABILITY_ElementBurst_Layer",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 0.5,
                                 1.5,
                                 2.5,
                                 100.0
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_ElementBurst_Count3Wave_0",
                                 "UNIQUE_UNIQUE_ElementBurst_Count3Wave_1_Effect",
                                 "UNIQUE_UNIQUE_ElementBurst_Count3Wave_2_Effect",
@@ -779,73 +779,73 @@
                     ]
                 },
                 "UNIQUE_ElementBurst_Count3Wave_0": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0
                 },
                 "UNIQUE_UNIQUE_ElementBurst_Count3Wave_1_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_ElemMasteryDelta": [
                             "Delta",
                             1.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_UNIQUE_ElementBurst_Count3Wave_2_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_ElemMasteryDelta": [
                             "Delta",
                             2.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_UNIQUE_ElementBurst_Count3Wave_3_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_ElemMasteryDelta": [
                             "Delta",
                             3.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_ElementBurst_Count3Wave_3_Extra_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.30000001192092896,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.30000001192092896,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "进入冲击波技能效果逻辑！"
+                            "content": "进入冲击波技能效果逻辑！"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
+                            "effectPattern": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 4.0
+                                    "radius": 4.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -873,175 +873,175 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_ElementBurst_AddLayer": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_ElementBurst_Layer",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ABILITY_ElementBurst_Layer",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "刷新时间"
+                            "content": "刷新时间"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "NPHOOPNDCAC": "MPLevel",
-                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_Time"
+                            "target": "MPLevel",
+                            "modifierName": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_Time"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "MPLevel",
-                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_Time"
+                            "target": "MPLevel",
+                            "modifierName": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_Time"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_Time": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": "Bufftime",
-                    "PBDDACFFPOE": [
+                    "thinkInterval": "Bufftime",
+                    "onThinkInterval": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_ElementBurst_Layer",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ABILITY_ElementBurst_Layer",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "重置为0"
+                            "content": "重置为0"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "MPLevel",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_ElementBurst_Count3Wave_MPLevel_Init"
+                    "target": "MPLevel",
+                    "modifierName": "UNIQUE_EnergyDisk_Purple_ElementBurst_Count3Wave_MPLevel_Init"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "HJJEAOMEOFI": "LevelEntity_Count3Wave_SystemValue",
+                    "isFormula": "LevelEntity_Count3Wave_SystemValue",
                     "type": "ElementLevelCo"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Purple_ElementBurst_Count3Wave_Handler"
+                    "modifierName": "UNIQUE_Purple_ElementBurst_Count3Wave_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Purple_ElementBurstTriggerWave_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Purple_Damage": 0.0,
                 "CDTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_ElementBurstTriggerWave_FireEffect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.5,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 0.5,
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByIsCombat"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_FireEffect_Effect"
+                                    "modifierName": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_FireEffect_Effect"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_FireEffect_Effect"
+                                    "modifierName": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_FireEffect_Effect"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_ElementBurstTriggerWave_FireEffect_Effect": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ElementalBurst_Trigger",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_EnergyDisk_ElementalBurst_Trigger",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 2.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 2.0,
+                                    "z": 0.0
                                 }
                             }
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_ElementBurstTriggerWave_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MLBANMCFDAF": [
+                            "onTriggerUltimateSkill": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "MPLevel",
-                                    "ELDBAFHCOBL": [
+                                    "target": "MPLevel",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_Ability_EnergyDisk_ElementBurstTriggerWave_CD",
+                                            "isFormula": "_Ability_EnergyDisk_ElementBurstTriggerWave_CD",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "AllPlayerAvatars",
-                                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_Effect"
+                                            "target": "AllPlayerAvatars",
+                                            "modifierName": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_Effect"
                                         },
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "MPLevel",
-                                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_CD_Change_MPLEVEL"
+                                            "target": "MPLevel",
+                                            "modifierName": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_CD_Change_MPLEVEL"
                                         }
                                     ]
                                 }
@@ -1051,47 +1051,47 @@
                     ]
                 },
                 "UNIQUE_EnergyDisk_ElementBurstTriggerWave_CD_Change_MPLEVEL": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 2.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 2.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_Ability_EnergyDisk_ElementBurstTriggerWave_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Ability_EnergyDisk_ElementBurstTriggerWave_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_Ability_EnergyDisk_ElementBurstTriggerWave_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Ability_EnergyDisk_ElementBurstTriggerWave_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_ElementBurstTriggerWave_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 4.0
+                                    "radius": 4.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1111,45 +1111,45 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
+                            "effectPattern": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_Handler"
+                    "modifierName": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_Handler"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_FireEffect"
+                    "modifierName": "UNIQUE_EnergyDisk_ElementBurstTriggerWave_FireEffect"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Blue_ElementDmgUpAfterCrystalShield_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "time": 0.0,
                 "Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Blue_ElementDmgUpAfterCrystalShield": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByGainCrystalSeedMixin",
-                            "FNHOFLJNEOD": [
+                            "elementTypes": [
                                 "Fire",
                                 "Water",
                                 "Grass",
@@ -1158,21 +1158,21 @@
                                 "Wind",
                                 "Rock"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Relic_ElementDmgUpAfterCrystalShield_BuffEffect"
+                                    "modifierName": "UNIQUE_Relic_ElementDmgUpAfterCrystalShield_BuffEffect"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Relic_ElementDmgUpAfterCrystalShield_BuffEffect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "time",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "time",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_FireAddHurtDelta": "Rate",
                         "Actor_WaterAddHurtDelta": "Rate",
                         "Actor_GrassAddHurtDelta": "Rate",
@@ -1184,62 +1184,62 @@
                     "state": "AttackUp"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_ElementDmgUpAfterCrystalShield"
+                    "modifierName": "UNIQUE_EnergyDisk_Blue_ElementDmgUpAfterCrystalShield"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Blue_ElementBurst_NormalAtkUp_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "time": 0.0,
                 "Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Blue_ElementBurst_NormalAtkUp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Elemental_Burst"
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_NormalAttackUp"
+                                    "modifierName": "UNIQUE_EnergyDisk_NormalAttackUp"
                                 },
                                 {
                                     "$type": "DebugLog",
-                                    "CBEDAJEGJBM": "元素爆发命中后触发了"
+                                    "content": "元素爆发命中后触发了"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_NormalAttackUp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "time",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "time",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -1253,20 +1253,20 @@
                     "state": "AttackUp"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_ElementBurst_NormalAtkUp"
+                    "modifierName": "UNIQUE_EnergyDisk_Blue_ElementBurst_NormalAtkUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Blue_HasShield_NormalAtkUp_V2",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToPredicateMixin",
                     "type": "Current",
@@ -1276,23 +1276,23 @@
                             "type": "All"
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_HasShield_NormalAtkUp"
+                    "modifierName": "UNIQUE_EnergyDisk_HasShield_NormalAtkUp"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Bufftime": 0.0,
                 "Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_HasShield_NormalAtkUp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1301,7 +1301,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -1311,65 +1311,65 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_HasShield_NormalAtkUp_Effect"
+                                    "modifierName": "UNIQUE_EnergyDisk_HasShield_NormalAtkUp_Effect"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_HasShield_NormalAtkUp_Effect": {
-                    "FGJPBKGPNJJ": "MultipleRefresh",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": 5.0
+                    "stacking": "MultipleRefresh",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": 5.0
                     },
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Bufftime",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Bufftime",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_AttackRatio": "Rate"
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "有护盾时的普攻命中后的buff效果层"
+                            "content": "有护盾时的普攻命中后的buff效果层"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Blue_ExtraAtkKill_Attract_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "CDTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Blue_ExtraAtkKill_Attract_Total": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "ADMJDEELAPK": "MPLevel",
-                            "BPCFCANOMNH": "_Ability_EnergyDisk_ExtraAtkKill_Attract_CD",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueTarget": "MPLevel",
+                            "globalValueKey": "_Ability_EnergyDisk_ExtraAtkKill_Attract_CD",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -1.5,
                                 -0.5,
                                 0.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_EnergyDisk_ExtraAtkKill_Attract_Cd",
                                 "Blank"
                             ]
@@ -1377,41 +1377,41 @@
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_EnergyDisk_ExtraAtkKill_Attract_Cd": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": "CDTime",
-                    "PBDDACFFPOE": [
+                    "thinkInterval": "CDTime",
+                    "onThinkInterval": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_Ability_EnergyDisk_ExtraAtkKill_Attract_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Ability_EnergyDisk_ExtraAtkKill_Attract_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_ExtraAtkKill_Attract_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByKillingMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "ExtraAttack"
                             ],
-                            "AJPHDMLEOGE": 0.6000000238418579,
-                            "OGFFGLGEOGF": [
+                            "detectWindow": 0.6000000238418579,
+                            "onKill": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Other",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Other",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -1419,30 +1419,30 @@
                                             ]
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "DebugLog",
-                                            "CBEDAJEGJBM": "重击击杀触发"
+                                            "content": "重击击杀触发"
                                         },
                                         {
                                             "$type": "Predicated",
-                                            "NPHOOPNDCAC": "MPLevel",
-                                            "ELDBAFHCOBL": [
+                                            "target": "MPLevel",
+                                            "targetPredicates": [
                                                 {
                                                     "$type": "ByTargetGlobalValue",
-                                                    "HJJEAOMEOFI": "_Ability_EnergyDisk_ExtraAtkKill_Attract_CD",
+                                                    "isFormula": "_Ability_EnergyDisk_ExtraAtkKill_Attract_CD",
                                                     "value": 0.0
                                                 }
                                             ],
-                                            "NCNDEAPMKCP": [
+                                            "successActions": [
                                                 {
                                                     "$type": "ApplyModifier",
-                                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_ExtraAtkKill_Attract_CreateGadget"
+                                                    "modifierName": "UNIQUE_EnergyDisk_Blue_ExtraAtkKill_Attract_CreateGadget"
                                                 },
                                                 {
                                                     "$type": "ApplyModifier",
-                                                    "NPHOOPNDCAC": "MPLevel",
-                                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ExtraAtkKill_Attract_CD_Change_MPLEVEL"
+                                                    "target": "MPLevel",
+                                                    "modifierName": "UNIQUE_EnergyDisk_ExtraAtkKill_Attract_CD_Change_MPLEVEL"
                                                 }
                                             ]
                                         }
@@ -1453,109 +1453,109 @@
                     ]
                 },
                 "UNIQUE_EnergyDisk_ExtraAtkKill_Attract_CD_Change_MPLEVEL": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_Ability_EnergyDisk_ExtraAtkKill_Attract_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Ability_EnergyDisk_ExtraAtkKill_Attract_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Blue_ExtraAtkKill_Attract_CreateGadget": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.30000001192092896,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.30000001192092896,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 5.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 5.0
                                 },
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             },
-                            "CABLIPAKCGB": 44000303,
-                            "DOLAJLACEDF": 1001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 44000303,
+                            "campID": 1001,
+                            "campTargetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "MPLevel",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_ExtraAtkKill_Attract_Total"
+                    "target": "MPLevel",
+                    "modifierName": "UNIQUE_EnergyDisk_Blue_ExtraAtkKill_Attract_Total"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ExtraAtkKill_Attract_Handler"
+                    "modifierName": "UNIQUE_EnergyDisk_ExtraAtkKill_Attract_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_EnergyDisk_WindBlackHole_GadgetV2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "BlackHole_Gadget_Damage": 5.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "WindBlackHole_Gadget_Pre": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.3400000035762787,
+                    "modifierName": "",
+                    "duration": 0.3400000035762787,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ExtraAtkAttract"
+                            "effectPattern": "Eff_EnergyDisk_ExtraAtkAttract"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "WindBlackHole_Gadget_Handler"
+                            "modifierName": "WindBlackHole_Gadget_Handler"
                         }
                     ]
                 },
                 "WindBlackHole_Gadget_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "WindBlackHole_Gadget_WindZone"
+                            "modifierName": "WindBlackHole_Gadget_WindZone"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": -3.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": -3.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "secondHeight": 6.0,
-                                    "ICGFCBOFFDI": 6.0
+                                    "radius": 6.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1575,30 +1575,30 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "WindBlackHole_Gadget_WindZone": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.30000001192092896,
+                    "modifierName": "",
+                    "duration": 0.30000001192092896,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "WindZoneMixin",
-                            "JBKKOJLJHDK": "CircleR6",
-                            "NGDMCBABOJA": {
+                            "shapeName": "CircleR6",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 1.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 1.0,
+                                    "z": 0.0
                                 }
                             },
-                            "BHELOIADOLH": 4.0,
-                            "HBBLBBPBLGE": 2.0,
-                            "IPDEDFHPHPO": 1.0,
-                            "OJIFKEOCJGB": "All",
+                            "strength": 4.0,
+                            "attenuation": 2.0,
+                            "innerRadius": 1.0,
+                            "targetType": "All",
                             "predicates": [
                                 {
                                     "$type": "ByEntityTypes",
@@ -1608,15 +1608,15 @@
                                     "GDLDGAGGKPN": true
                                 }
                             ],
-                            "GAIGOBCNNEE": ""
+                            "modifierName": ""
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "WindBlackHole_Gadget_Pre"
+                    "modifierName": "WindBlackHole_Gadget_Pre"
                 }
             ]
         }
@@ -1625,47 +1625,47 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Blue_MonsterNumAtkDefUp_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Count": 0.0,
                 "Rate": 0.0,
                 "Atk": 0.0,
                 "Def": 0.0,
                 "Now_Count": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Blue_MonsterNumAtkDefUp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 2.0,
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByIsCombat"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Count_Timer"
+                                    "modifierName": "UNIQUE_EnergyDisk_Count_Timer"
                                 },
                                 {
                                     "$type": "SetGlobalValue",
                                     "value": 0.0,
-                                    "HJJEAOMEOFI": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy_Count",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "isFormula": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy_Count",
+                                    "isDynamic": 0.0,
+                                    "fixedValue": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GILFKOBKGLI": {
+                                    "otherTargets": {
                                         "$type": "SelectTargetsByShape",
-                                        "AKMLOIFOBPO": "Nearest",
-                                        "JBKKOJLJHDK": "CircleR8",
-                                        "ONPOPLLHJLE": "Enemy",
-                                        "CJJABKCAIEB": 1.0
+                                        "sortType": "Nearest",
+                                        "shapeName": "CircleR8",
+                                        "campTargetType": "Enemy",
+                                        "sizeRatio": 1.0
                                     },
                                     "predicates": [
                                         {
@@ -1675,106 +1675,106 @@
                                             ]
                                         }
                                     ],
-                                    "GAIGOBCNNEE": "MonsterNumAtkDefUp_CountAdd"
+                                    "modifierName": "MonsterNumAtkDefUp_CountAdd"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "SetGlobalValue",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "value": 0.0,
-                                    "HJJEAOMEOFI": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "isFormula": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy",
+                                    "isDynamic": 0.0,
+                                    "fixedValue": 0.0
                                 }
                             ]
                         }
                     ]
                 },
                 "MonsterNumAtkDefUp_CountAdd": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Caster",
-                            "GAIGOBCNNEE": "MonsterNumAtkDefUp_CountAdd_Effect"
+                            "target": "Caster",
+                            "modifierName": "MonsterNumAtkDefUp_CountAdd_Effect"
                         }
                     ]
                 },
                 "MonsterNumAtkDefUp_CountAdd_Effect": {
-                    "FGJPBKGPNJJ": "MultipleRefresh",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.009999999776482582,
+                    "stacking": "MultipleRefresh",
+                    "modifierName": "",
+                    "duration": 0.009999999776482582,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy_Count",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy_Count",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Count_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "ACOKKHADPOJ": true,
-                            "BPCFCANOMNH": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy_Count",
-                            "OGAHELLALBB": "Now_Count"
+                            "doOffStage": true,
+                            "globalValueKey": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy_Count",
+                            "overrideMapKey": "Now_Count"
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": "Now_Count",
-                            "HJJEAOMEOFI": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "MonsterNumAtkDefUp_BuffEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_AttackRatio": "Atk",
                         "Actor_DefenceRatio": "Def"
                     },
                     "state": "AttackUp"
                 },
                 "UNIQUE_MonsterNumAtkDefUp_MoveBuff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.30000001192092896,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.30000001192092896,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "MonsterNumAtkDefUp_BuffEffect"
+                            "modifierName": "MonsterNumAtkDefUp_BuffEffect"
                         }
                     ]
                 },
                 "EnergyDisk_Blue_MonsterNumAtkDefUp_Mixin": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 0.5,
                                 2.5,
                                 999.0
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "MonsterNumAtkDefUp_BuffEffect",
                                 "UNIQUE_MonsterNumAtkDefUp_MoveBuff"
                             ]
@@ -1782,63 +1782,63 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_MonsterNumAtkDefUp"
+                    "modifierName": "UNIQUE_EnergyDisk_Blue_MonsterNumAtkDefUp"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "EnergyDisk_Blue_MonsterNumAtkDefUp_Mixin"
+                    "modifierName": "EnergyDisk_Blue_MonsterNumAtkDefUp_Mixin"
                 },
                 {
                     "$type": "SetGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "isFormula": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy",
+                    "isDynamic": 0.0,
+                    "fixedValue": 0.0
                 },
                 {
                     "$type": "SetGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy_Count",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "isFormula": "_ABILITY_EnergyDisk_MonsterNumAtkDefUp_Enemy_Count",
+                    "isDynamic": 0.0,
+                    "fixedValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Blue_ExtraAtkKillMonster_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Damage": 0.0,
                 "DamageSystemValue": 0.0,
                 "CDTime": 0.0,
                 "HPRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Blue_ExtraAtkKillMonster_Total": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "ADMJDEELAPK": "MPLevel",
-                            "BPCFCANOMNH": "_Ability_EnergyDisk_ExtraAtkKillMonster_CD",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueTarget": "MPLevel",
+                            "globalValueKey": "_Ability_EnergyDisk_ExtraAtkKillMonster_CD",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -1.5,
                                 -0.5,
                                 0.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_EnergyDisk_ExtraAtkKillMonster_Cd",
                                 "Blank"
                             ]
@@ -1846,18 +1846,18 @@
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_EnergyDisk_Blue_ExtraAtkKillMonster_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1866,47 +1866,47 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "ExtraAttack"
                                     ]
                                 },
                                 {
                                     "$type": "ByTargetHPRatio",
-                                    "GMFCOCAJBDM": "Lesser",
-                                    "BCJJBMJKHED": "HPRatio"
+                                    "logic": "Lesser",
+                                    "HPRatio": "HPRatio"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Target",
-                                    "GAIGOBCNNEE": "EnergyDisk_ExtraAtkKillMonster_Monster"
+                                    "target": "Target",
+                                    "modifierName": "EnergyDisk_ExtraAtkKillMonster_Monster"
                                 }
                             ]
                         }
                     ]
                 },
                 "EnergyDisk_ExtraAtkKillMonster_Monster": {
-                    "FGJPBKGPNJJ": "MultipleRefresh",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "MultipleRefresh",
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "MPLevel",
-                            "ELDBAFHCOBL": [
+                            "target": "MPLevel",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_Ability_EnergyDisk_ExtraAtkKillMonster_CD",
+                                    "isFormula": "_Ability_EnergyDisk_ExtraAtkKillMonster_CD",
                                     "value": 0.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_EnergyDisk_ExtraAtkWave",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_EnergyDisk_ExtraAtkWave",
+                                    "born": {
                                         "$type": "ConfigBornByTarget"
                                     }
                                 },
@@ -1939,91 +1939,91 @@
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "MPLevel",
-                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ExtraAtkKill_CD_Change_MPLEVEL"
+                                    "target": "MPLevel",
+                                    "modifierName": "UNIQUE_EnergyDisk_ExtraAtkKill_CD_Change_MPLEVEL"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_ExtraAtkKill_CD_Change_MPLEVEL": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_Ability_EnergyDisk_ExtraAtkKillMonster_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Ability_EnergyDisk_ExtraAtkKillMonster_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_ExtraAtkKillMonster_Cd": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": "CDTime",
-                    "PBDDACFFPOE": [
+                    "thinkInterval": "CDTime",
+                    "onThinkInterval": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_Ability_EnergyDisk_ExtraAtkKillMonster_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Ability_EnergyDisk_ExtraAtkKillMonster_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "ACOKKHADPOJ": true,
-                    "HJJEAOMEOFI": "DamageSystemValue",
+                    "doOffStage": true,
+                    "isFormula": "DamageSystemValue",
                     "type": "ElementLevelCo"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "MPLevel",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_ExtraAtkKillMonster_Total"
+                    "target": "MPLevel",
+                    "modifierName": "UNIQUE_EnergyDisk_Blue_ExtraAtkKillMonster_Total"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_ExtraAtkKillMonster_Handler"
+                    "modifierName": "UNIQUE_EnergyDisk_Blue_ExtraAtkKillMonster_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Blue_BuffAfterCrystalShield_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "CDtime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Purple_BuffAfterCrystalShield_Total": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "ADMJDEELAPK": "MPLevel",
-                            "BPCFCANOMNH": "_Ability_BuffAfterCrystalShield_CD",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueTarget": "MPLevel",
+                            "globalValueKey": "_Ability_BuffAfterCrystalShield_CD",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -1.5,
                                 -0.5,
                                 0.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_EnergyDisk_BuffAfterCrystalShield_Cd",
                                 "Blank"
                             ]
@@ -2031,33 +2031,33 @@
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_EnergyDisk_BuffAfterCrystalShield_CD_Change_MPLEVEL": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_Ability_BuffAfterCrystalShield_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Ability_BuffAfterCrystalShield_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Blue_BuffAfterCrystalShield": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByGainCrystalSeedMixin",
-                            "FNHOFLJNEOD": [
+                            "elementTypes": [
                                 "Fire",
                                 "Water",
                                 "Wind",
@@ -2066,27 +2066,27 @@
                                 "Grass",
                                 "Electric"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "MPLevel",
-                                    "ELDBAFHCOBL": [
+                                    "target": "MPLevel",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_Ability_BuffAfterCrystalShield_CD",
+                                            "isFormula": "_Ability_BuffAfterCrystalShield_CD",
                                             "value": 0.0
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "AllPlayerAvatars",
-                                            "GAIGOBCNNEE": "UNIQUE_BuffAfterCrystalShield_BuffEffect"
+                                            "target": "AllPlayerAvatars",
+                                            "modifierName": "UNIQUE_BuffAfterCrystalShield_BuffEffect"
                                         },
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "MPLevel",
-                                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_BuffAfterCrystalShield_CD_Change_MPLEVEL"
+                                            "target": "MPLevel",
+                                            "modifierName": "UNIQUE_EnergyDisk_BuffAfterCrystalShield_CD_Change_MPLEVEL"
                                         }
                                     ]
                                 }
@@ -2095,92 +2095,92 @@
                     ]
                 },
                 "UNIQUE_BuffAfterCrystalShield_BuffEffect": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_ExtraElementBall"
+                            "effectPattern": "Eff_Weapon_ExtraElementBall"
                         },
                         {
                             "$type": "ReviveElemEnergy",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 2.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_BuffAfterCrystalShield_Cd": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": "CDtime",
-                    "PBDDACFFPOE": [
+                    "thinkInterval": "CDtime",
+                    "onThinkInterval": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_Ability_BuffAfterCrystalShield_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_Ability_BuffAfterCrystalShield_CD",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "MPLevel",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_BuffAfterCrystalShield_Total"
+                    "target": "MPLevel",
+                    "modifierName": "UNIQUE_EnergyDisk_Purple_BuffAfterCrystalShield_Total"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_BuffAfterCrystalShield"
+                    "modifierName": "UNIQUE_EnergyDisk_Blue_BuffAfterCrystalShield"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Blue_AddElementBurstLevel_V2",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Blue_AddElementBurstLevel": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_AddElementBurstLevel"
+                    "modifierName": "UNIQUE_EnergyDisk_Blue_AddElementBurstLevel"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Blue_KillAOEMonster_V2",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Blue_KillAOEMonster": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByKillingMixin",
-                            "AJPHDMLEOGE": 0.6000000238418579,
-                            "OGFFGLGEOGF": [
+                            "detectWindow": 0.6000000238418579,
+                            "onKill": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Other",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Other",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -2188,16 +2188,16 @@
                                             ]
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "CreateGadget",
-                                            "NPHOOPNDCAC": "Other",
-                                            "NGDMCBABOJA": {
+                                            "target": "Other",
+                                            "born": {
                                                 "$type": "ConfigBornByTarget"
                                             },
-                                            "CABLIPAKCGB": 44000302,
-                                            "DOLAJLACEDF": 1001,
-                                            "ONPOPLLHJLE": "Enemy"
+                                            "gadgetID": 44000302,
+                                            "campID": 1001,
+                                            "campTargetType": "Enemy"
                                         }
                                     ]
                                 }
@@ -2206,57 +2206,57 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_KillAOEMonster"
+                    "modifierName": "UNIQUE_EnergyDisk_Blue_KillAOEMonster"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "EnergyDisk_KillAOEMonster_GadgetV2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Delay": 1.0,
                 "Damage": 20.0,
                 "DamageSystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "SprintAreaAttack": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "Delay",
+                    "modifierName": "",
+                    "duration": "Delay",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Stages_GainWave_Stay",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Stages_GainWave_Stay",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Stages_GainWave_01",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Stages_GainWave_01",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             }
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "NPHOOPNDCAC": "OriginOwner",
-                            "DMCJDGELKBC": {
+                            "target": "OriginOwner",
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 4.0
+                                    "radius": 4.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -2282,146 +2282,146 @@
                                     "cameraShake": {}
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "SprintAreaAttack"
+                    "modifierName": "SprintAreaAttack"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "ACOKKHADPOJ": true,
-                    "HJJEAOMEOFI": "DamageSystemValue",
+                    "doOffStage": true,
+                    "isFormula": "DamageSystemValue",
                     "type": "ElementLevelCo"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Green_PhysicalHurtUp_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "EnergyDisk_PhysicalAddHurtDelta": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EnergyDisk_Green_PhysicalHurtUp": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_PhysicalAddHurtDelta": "EnergyDisk_PhysicalAddHurtDelta"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "EnergyDisk_Green_PhysicalHurtUp"
+                    "modifierName": "EnergyDisk_Green_PhysicalHurtUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Green_BurstDamageUp_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Burst_Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Green_BurstDamageUp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Burst"
                             ],
                             "damagePercentageRatio": "Burst_Rate"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Green_BurstDamageUp"
+                    "modifierName": "UNIQUE_EnergyDisk_Green_BurstDamageUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Green_ElemMasteryDeltaUp_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "EnergyDisk_ElemMasteryDelta": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EnergyDisk_Green_ElemMasteryDeltaUp": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_ElemMasteryDelta": "EnergyDisk_ElemMasteryDelta"
                     },
                     "PMOIKINDLJC": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "EnergyDisk_Green_ElemMasteryDeltaUp"
+                    "modifierName": "EnergyDisk_Green_ElemMasteryDeltaUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Green_DefUp_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Actor_ShieldCostMinusRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Green_DefUp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Actor_ShieldCostMinusRatio": "Actor_ShieldCostMinusRatio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Green_DefUp"
+                    "modifierName": "UNIQUE_EnergyDisk_Green_DefUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Green_ExtraAtkUp_V2",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ModifyDamageMixin",
-                    "NMJGDKCDFOJ": [
+                    "attackTags": [
                         "NormalAttack_01",
                         "NormalAttack_02",
                         "NormalAttack_03",
@@ -2432,72 +2432,72 @@
                     "damagePercentageRatio": "NormalAttack_Rate"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "NormalAttack_Rate": 0.0
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Green_ThumpDamageUp_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "EnergyDisk_ExtraAtk_damRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_EnergyDisk_Green_ThumpDamageUp": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "ExtraAttack"
                             ],
                             "damagePercentageRatio": "EnergyDisk_ExtraAtk_damRatio"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Green_ThumpDamageUp"
+                    "modifierName": "UNIQUE_EnergyDisk_Green_ThumpDamageUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Purple_BurstDamageUp_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Bufftime": 0.0,
                 "BurstDamageUp": 0.0,
                 "AttackSpeed_Ratio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EnergyDisk_Purple_BurstDamageUp_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MLBANMCFDAF": [
+                            "onTriggerUltimateSkill": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "MPLevel",
-                                    "GAIGOBCNNEE": "EnergyDisk_ElementBurst_Layer_AddGV_MPLevel"
+                                    "target": "MPLevel",
+                                    "modifierName": "EnergyDisk_ElementBurst_Layer_AddGV_MPLevel"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "MPLevel",
-                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_V2"
+                                    "target": "MPLevel",
+                                    "modifierName": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_V2"
                                 }
                             ],
                             "CAHFPMLJFAK": 0.20000000298023224
@@ -2505,32 +2505,32 @@
                     ]
                 },
                 "EnergyDisk_ElementBurst_Layer_AddGV_MPLevel": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_EnergyDisk_Purple_BurstLevel",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ABILITY_EnergyDisk_Purple_BurstLevel",
+                            "useLimitRange": true,
+                            "isDynamic": 5.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Purple_BurstDamageUp_MPLevelHandler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "ADMJDEELAPK": "MPLevel",
-                            "BPCFCANOMNH": "_ABILITY_EnergyDisk_Purple_BurstLevel",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueTarget": "MPLevel",
+                            "globalValueKey": "_ABILITY_EnergyDisk_Purple_BurstLevel",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 0.5,
                                 1.5,
@@ -2539,7 +2539,7 @@
                                 4.5,
                                 10.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Blank",
                                 "EnergyDisk_ElementBurst_BurstDamageUp_Layer01",
                                 "EnergyDisk_ElementBurst_BurstDamageUp_Layer02",
@@ -2551,16 +2551,16 @@
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "EnergyDisk_ElementBurst_BurstDamageUp_Layer01": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Burst"
                             ],
                             "damagePercentageRatio": "BurstDamageUp"
@@ -2568,12 +2568,12 @@
                     ]
                 },
                 "EnergyDisk_ElementBurst_BurstDamageUp_Layer02": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Burst"
                             ],
                             "damagePercentageRatio": [
@@ -2585,12 +2585,12 @@
                     ]
                 },
                 "EnergyDisk_ElementBurst_BurstDamageUp_Layer03": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Burst"
                             ],
                             "damagePercentageRatio": [
@@ -2602,12 +2602,12 @@
                     ]
                 },
                 "EnergyDisk_ElementBurst_BurstDamageUp_Layer04": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Burst"
                             ],
                             "damagePercentageRatio": [
@@ -2619,12 +2619,12 @@
                     ]
                 },
                 "EnergyDisk_ElementBurst_BurstDamageUp_Layer05": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Burst"
                             ],
                             "damagePercentageRatio": [
@@ -2634,112 +2634,112 @@
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "Actor_MaxHPRatio": {
                         "Animator_AttackSpeedRatio": "AttackSpeed_Ratio"
                     }
                 },
                 "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_V2": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "刷新时间"
+                            "content": "刷新时间"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "NPHOOPNDCAC": "MPLevel",
-                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_Time_V2"
+                            "target": "MPLevel",
+                            "modifierName": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_Time_V2"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "MPLevel",
-                            "GAIGOBCNNEE": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_Time_V2"
+                            "target": "MPLevel",
+                            "modifierName": "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_Time_V2"
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_ElementBurst_Layer_Reset_MPLEVEL_Time_V2": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": "Bufftime",
-                    "PBDDACFFPOE": [
+                    "thinkInterval": "Bufftime",
+                    "onThinkInterval": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "MPLevel",
+                            "target": "MPLevel",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_EnergyDisk_Purple_BurstLevel",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "_ABILITY_EnergyDisk_Purple_BurstLevel",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         },
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "重置为0"
+                            "content": "重置为0"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "EnergyDisk_Purple_BurstDamageUp_Handler"
+                    "modifierName": "EnergyDisk_Purple_BurstDamageUp_Handler"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Purple_BurstDamageUp_MPLevelHandler"
+                    "modifierName": "UNIQUE_EnergyDisk_Purple_BurstDamageUp_MPLevelHandler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_EnergyDisk_Blue_ShockCdMinus_V2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "CD_Interval": 0.0,
                 "CD_Minus": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EnergyDisk_Blue_ShockCdMinus": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "Shock"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "GAIGOBCNNEE": "UNIQUE_EnergyDisk_Blue_ShockCdMinus_OnTeam"
+                                    "target": "Team",
+                                    "modifierName": "UNIQUE_EnergyDisk_Blue_ShockCdMinus_OnTeam"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_EnergyDisk_Blue_ShockCdMinus_OnTeam": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "CD_Interval",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "CD_Interval",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ModifyAvatarSkillCD",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "CDBCHJIFPKA": [
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "skillSlot": [
                                 5
                             ],
-                            "KHBEPNBNHOI": [
+                            "cdDelta": [
                                 0.0,
                                 1.0,
                                 "CD_Minus",
@@ -2750,13 +2750,13 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "EnergyDisk_Blue_ShockCdMinus"
+                    "modifierName": "EnergyDisk_Blue_ShockCdMinus"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

@@ -3,128 +3,128 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_UltimateSkillHitDamage",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_UltimateSkillHitDamage": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NPHOOPNDCAC": "Self",
-                                    "NMJGDKCDFOJ": [
+                                    "target": "Self",
+                                    "attackTags": [
                                         "Elemental_Burst"
                                     ]
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "NPHOOPNDCAC": "Other",
-                                    "GOCKFJJFLHN": 0.0
+                                    "target": "Other",
+                                    "damage": 0.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "UltimateSkillHitDamage_CDState",
+                                    "target": "Self",
+                                    "isFormula": "UltimateSkillHitDamage_CDState",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "angularVelocityThreshold": 1
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "doOffStage": true,
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UltimateSkillHitDamage_CD"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UltimateSkillHitDamage_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_UltimateSkillHitDamage_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "UltimateSkillHitDamage_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UltimateSkillHitDamage_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "UltimateSkillHitDamage_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UltimateSkillHitDamage_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UltimateSkillHitDamage"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UltimateSkillHitDamage"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_UseSkill",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MPNINPNOPPE": [
+                            "onTriggerSkill": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 2
@@ -134,21 +134,21 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_CD"
                                 }
                             ],
                             "CAHFPMLJFAK": 0.20000000298023224
@@ -156,65 +156,65 @@
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_OnAvatarIn",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_OnAvatarIn": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "NDHIFGEGBAC": [
+                    "onAvatarIn": [
                         {
                             "$type": "TriggerCrystalLinkAbility",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "OnAvatarIn_CDState",
+                                    "target": "Self",
+                                    "isFormula": "OnAvatarIn_CDState",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "angularVelocityThreshold": 3
@@ -224,87 +224,87 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "OnAvatarIn_CDState",
+                                    "target": "Self",
+                                    "isFormula": "OnAvatarIn_CDState",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "MINNFFNDCJH": "CurGalleryControlGroup",
-                            "PDFANJKMFNK": "SLC_Add_Fever",
-                            "LIOGECEPJAH": 0.0,
-                            "FDDPMCCJIKN": 0.0,
-                            "KNJMHMKNCKF": 0.0
+                            "luaCallType": "CurGalleryControlGroup",
+                            "funcName": "SLC_Add_Fever",
+                            "param1": 0.0,
+                            "param2": 0.0,
+                            "param3": 0.0
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_OnAvatarIn_CD"
+                            "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_OnAvatarIn_CD"
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_OnAvatarIn_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "OnAvatarIn_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "OnAvatarIn_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "OnAvatarIn_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "OnAvatarIn_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_OnAvatarIn"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_OnAvatarIn"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_UseSkill_Level2",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level2": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MPNINPNOPPE": [
+                            "onTriggerSkill": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 4
@@ -314,21 +314,21 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level2_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level2_CD"
                                 }
                             ],
                             "CAHFPMLJFAK": 0.20000000298023224
@@ -336,65 +336,65 @@
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level2_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level2"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level2"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_NormalAttackLanded_Counter",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0,
                 "NormalAttack_MaxTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackLanded_Counter": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NPHOOPNDCAC": "Self",
-                                    "NMJGDKCDFOJ": [
+                                    "target": "Self",
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -405,92 +405,92 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "NormalAttackCounter_CDState",
+                                    "target": "Self",
+                                    "isFormula": "NormalAttackCounter_CDState",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
                                     "angularVelocityThreshold": 5
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackLanded_Counter_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackLanded_Counter_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackLanded_Counter_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "NormalAttackCounter_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "NormalAttackCounter_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "NormalAttackCounter_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "NormalAttackCounter_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackLanded_Counter"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackLanded_Counter"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_NormalAttackElementalDamage",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackElementalDamage": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NPHOOPNDCAC": "Self",
-                                    "NMJGDKCDFOJ": [
+                                    "target": "Self",
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -504,244 +504,244 @@
                                     "predicates": [
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Fire"
+                                            "element": "Fire"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Water"
+                                            "element": "Water"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Ice"
+                                            "element": "Ice"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Electric"
+                                            "element": "Electric"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Wind"
+                                            "element": "Wind"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Rock"
+                                            "element": "Rock"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Grass"
+                                            "element": "Grass"
                                         }
                                     ]
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "NPHOOPNDCAC": "Other",
-                                    "GOCKFJJFLHN": 0.0
+                                    "target": "Other",
+                                    "damage": 0.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "ElementalDamage_CDState",
+                                    "target": "Self",
+                                    "isFormula": "ElementalDamage_CDState",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
                                     "angularVelocityThreshold": 6
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackElementalDamage_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackElementalDamage_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackElementalDamage_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "ElementalDamage_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "ElementalDamage_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "ElementalDamage_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "ElementalDamage_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackElementalDamage"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_NormalAttackElementalDamage"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_ElectricReaction",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_ElectricReaction": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "Explode",
                                 "Shock",
                                 "Superconductor",
                                 "SwirlElectric"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "ElectricReaction_CDState",
+                                            "target": "Self",
+                                            "isFormula": "ElectricReaction_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 7
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "ElectricReaction_CDState",
+                                            "target": "Self",
+                                            "isFormula": "ElectricReaction_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "ElectricReaction_CDState",
+                                            "target": "Self",
+                                            "isFormula": "ElectricReaction_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_ElectricReaction_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_ElectricReaction_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_ElectricReaction_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "ElectricReaction_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "ElectricReaction_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "ElectricReaction_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "ElectricReaction_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_ElectricReaction"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_ElectricReaction"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_UseSkill_Level3",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level3": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MPNINPNOPPE": [
+                            "onTriggerSkill": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 8
@@ -751,21 +751,21 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level3_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level3_CD"
                                 }
                             ],
                             "CAHFPMLJFAK": 0.20000000298023224
@@ -773,363 +773,363 @@
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level3_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level3"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level3"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_ElectricDamage",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_ElectricDamage": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "NPHOOPNDCAC": "Other",
-                                    "GOCKFJJFLHN": 0.0
+                                    "target": "Other",
+                                    "damage": 0.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "ElectricDamage_CDState",
+                                    "target": "Self",
+                                    "isFormula": "ElectricDamage_CDState",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "angularVelocityThreshold": 9
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "doOffStage": true,
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_ElectricDamage_CD"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_ElectricDamage_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_ElectricDamage_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "ElectricDamage_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "ElectricDamage_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "ElectricDamage_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "ElectricDamage_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_ElectricDamage"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_ElectricDamage"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_RockDamage",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_RockDamage": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Rock"
+                                    "element": "Rock"
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "NPHOOPNDCAC": "Other",
-                                    "GOCKFJJFLHN": 0.0
+                                    "target": "Other",
+                                    "damage": 0.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "RockDamage_CDState",
+                                    "target": "Self",
+                                    "isFormula": "RockDamage_CDState",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "angularVelocityThreshold": 13
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "doOffStage": true,
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_RockDamage_CD"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_RockDamage_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_RockDamage_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "RockDamage_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RockDamage_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "RockDamage_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "RockDamage_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_RockDamage"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_RockDamage"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_Crystallize",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_Crystallize": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "CrystallizeElectric",
                                 "CrystallizeFire",
                                 "CrystallizeIce",
                                 "CrystallizeWater"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "Crystallize_CDState",
+                                            "target": "Self",
+                                            "isFormula": "Crystallize_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 14
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "Crystallize_CDState",
+                                            "target": "Self",
+                                            "isFormula": "Crystallize_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "Crystallize_CDState",
+                                            "target": "Self",
+                                            "isFormula": "Crystallize_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_RockDamage_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_RockDamage_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_RockDamage_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "Crystallize_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "Crystallize_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "Crystallize_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "Crystallize_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_Crystallize"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_Crystallize"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_RockGadgetDestroyed",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_RockGadgetDestroyed": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByEntityKillMixin",
                             "predicates": [
@@ -1143,128 +1143,128 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_COMMON_GADGET_ISSUMMON",
+                                    "isFormula": "_COMMON_GADGET_ISSUMMON",
                                     "value": 1.0
                                 },
                                 {
                                     "$type": "ByTargetIsSelf",
-                                    "NPHOOPNDCAC": "TargetOriginOwner"
+                                    "target": "TargetOriginOwner"
                                 }
                             ],
-                            "CAMEGDMMOKO": [
+                            "actionQueue": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "BreakRockGadget_CDState",
+                                            "target": "Self",
+                                            "isFormula": "BreakRockGadget_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 15
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "BreakRockGadget_CDState",
+                                            "target": "Self",
+                                            "isFormula": "BreakRockGadget_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "BreakRockGadget_CDState",
+                                            "target": "Self",
+                                            "isFormula": "BreakRockGadget_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_RockGadgetDestroyed_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_RockGadgetDestroyed_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_RockGadgetDestroyed_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "BreakRockGadget_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "BreakRockGadget_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "BreakRockGadget_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "BreakRockGadget_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_RockGadgetDestroyed"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_RockGadgetDestroyed"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_UseSkill_Level4",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level4": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MPNINPNOPPE": [
+                            "onTriggerSkill": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 15
@@ -1274,21 +1274,21 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level4_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level4_CD"
                                 }
                             ],
                             "CAHFPMLJFAK": 0.20000000298023224
@@ -1296,261 +1296,261 @@
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level4_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level4"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level4"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_BeingHealed",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_BeingHealed": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
                     "CLKOPBOIEEH": [
                         {
                             "$type": "Predicated",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "BeingHealed_CDState",
+                                    "target": "Self",
+                                    "isFormula": "BeingHealed_CDState",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "angularVelocityThreshold": 10
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "doOffStage": true,
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_BeingHealed_CD"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_BeingHealed_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_BeingHealed_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "BeingHealed_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "BeingHealed_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "BeingHealed_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "BeingHealed_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_BeingHealed"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_BeingHealed"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_HPDown",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_HPDown": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByEventMixin",
-                            "PDPENHIADJD": "HPDown",
-                            "OAEEBLALAPO": [
+                            "onEvent": "HPDown",
+                            "actions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "HPDown_CDState",
+                                            "target": "Self",
+                                            "isFormula": "HPDown_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 11
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "HPDown_CDState",
+                                            "target": "Self",
+                                            "isFormula": "HPDown_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "HPDown_CDState",
+                                            "target": "Self",
+                                            "isFormula": "HPDown_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_HPDown_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_HPDown_CD"
                                 }
                             ],
-                            "LIINFCJLBOP": ""
+                            "costEnergyDeltaName": ""
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_HPDown_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "HPDown_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "HPDown_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "HPDown_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "HPDown_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_HPDown"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_HPDown"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_UseSkill_Level5",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level5": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MPNINPNOPPE": [
+                            "onTriggerSkill": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 12
@@ -1560,21 +1560,21 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level5_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level5_CD"
                                 }
                             ],
                             "CAHFPMLJFAK": 0.20000000298023224
@@ -1582,270 +1582,270 @@
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level5_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level5"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level5"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_HitFrozenTarget",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_HitFrozenTarget": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByHasAbilityState",
-                                    "MFKFDKDKKNJ": "ElementFrozen"
+                                    "abilityState": "ElementFrozen"
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "HitFrozenTarget_CDState",
+                                    "target": "Self",
+                                    "isFormula": "HitFrozenTarget_CDState",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "angularVelocityThreshold": 16
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "doOffStage": true,
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_HitFrozenTarget_CD"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_HitFrozenTarget_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_HitFrozenTarget_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "HitFrozenTarget_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "HitFrozenTarget_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "HitFrozenTarget_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "HitFrozenTarget_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_HitFrozenTarget"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_HitFrozenTarget"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_FrozenBroken",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_FrozenBroken": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "FrozenBroken"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "FrozenBroken_CDState",
+                                            "target": "Self",
+                                            "isFormula": "FrozenBroken_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 17
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "FrozenBroken_CDState",
+                                            "target": "Self",
+                                            "isFormula": "FrozenBroken_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "FrozenBroken_CDState",
+                                            "target": "Self",
+                                            "isFormula": "FrozenBroken_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_FrozenBroken_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_FrozenBroken_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_FrozenBroken_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "FrozenBroken_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "FrozenBroken_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "FrozenBroken_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "FrozenBroken_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_FrozenBroken"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_FrozenBroken"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_UseSkill_Level6",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level6": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MPNINPNOPPE": [
+                            "onTriggerSkill": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 17
@@ -1855,21 +1855,21 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "UseSkill_CDState",
+                                            "target": "Self",
+                                            "isFormula": "UseSkill_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level6_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level6_CD"
                                 }
                             ],
                             "CAHFPMLJFAK": 0.20000000298023224
@@ -1877,150 +1877,150 @@
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level6_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "UseSkill_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "UseSkill_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level6"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_UseSkill_Level6"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_CrystalLink_Trigger_Frozen",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "TriggerCD": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_CrystalLink_Trigger_Frozen": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "Freeze"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "TriggerCrystalLinkAbility",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "Frozen_CDState",
+                                            "target": "Self",
+                                            "isFormula": "Frozen_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "angularVelocityThreshold": 18
                                 },
                                 {
                                     "$type": "ServerLuaCall",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "Frozen_CDState",
+                                            "target": "Self",
+                                            "isFormula": "Frozen_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "MINNFFNDCJH": "CurGalleryControlGroup",
-                                    "PDFANJKMFNK": "SLC_Add_Fever",
-                                    "LIOGECEPJAH": 0.0,
-                                    "FDDPMCCJIKN": 0.0,
-                                    "KNJMHMKNCKF": 0.0
+                                    "luaCallType": "CurGalleryControlGroup",
+                                    "funcName": "SLC_Add_Fever",
+                                    "param1": 0.0,
+                                    "param2": 0.0,
+                                    "param3": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "Frozen_CDState",
+                                            "target": "Self",
+                                            "isFormula": "Frozen_CDState",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_Frozen_CD"
+                                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_Frozen_CD"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Activity_CrystalLink_Trigger_Frozen_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "TriggerCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "TriggerCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "Frozen_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "Frozen_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "Frozen_CDState",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "isFormula": "Frozen_CDState",
+                            "isDynamic": 0.0,
+                            "fixedValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_CrystalLink_Trigger_Frozen"
+                    "modifierName": "UNIQUE_Activity_CrystalLink_Trigger_Frozen"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

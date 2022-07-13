@@ -3,42 +3,42 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Activity_Bartender_Ban_Skill",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Activity_Bartender_Ban_Skill_Modifier": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ChangePlayMode",
-                            "ACOKKHADPOJ": true,
-                            "CFIPAGENGPE": true,
-                            "POKMJEIDNJF": true,
-                            "KDNEFEJINAA": "Bartender"
+                            "doOffStage": true,
+                            "canBeHandledOnRecover": true,
+                            "muteRemoteAction": true,
+                            "toPlayMode": "Bartender"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ChangePlayMode",
-                            "ACOKKHADPOJ": true,
-                            "POKMJEIDNJF": true
+                            "doOffStage": true,
+                            "muteRemoteAction": true
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_Bartender_Ban_Skill_Modifier"
+                    "modifierName": "UNIQUE_Activity_Bartender_Ban_Skill_Modifier"
                 }
             ],
-            "ILBIENDPCBG": [
+            "onRemoved": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Activity_Bartender_Ban_Skill_Modifier"
+                    "modifierName": "UNIQUE_Activity_Bartender_Ban_Skill_Modifier"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]
